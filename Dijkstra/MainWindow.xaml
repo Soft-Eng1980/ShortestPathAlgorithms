@@ -29,6 +29,7 @@
                 Margin="4,10,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
+                d:IsHidden="True"
                 Content="Inception Point" />
             <Label
                 x:Name="lbl_Destination"
@@ -36,6 +37,7 @@
                 Margin="116,10,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
+                d:IsHidden="True"
                 Content="Destination Point" />
             <ComboBox
                 x:Name="Inception_Point_Copy"
@@ -43,14 +45,16 @@
                 Height="21"
                 Margin="115,41,0,0"
                 HorizontalAlignment="Left"
-                VerticalAlignment="Top" />
+                VerticalAlignment="Top"
+                d:IsHidden="True" />
             <ComboBox
                 x:Name="Inception_Point"
                 Width="107"
                 Height="21"
                 Margin="3,41,0,0"
                 HorizontalAlignment="Left"
-                VerticalAlignment="Top" />
+                VerticalAlignment="Top"
+                d:IsHidden="True" />
             <Button
                 x:Name="btn_calc"
                 Width="154"
@@ -58,6 +62,7 @@
                 Margin="32,74,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
+                d:IsHidden="True"
                 Click="btn_calc_Click"
                 Content="Calculate"
                 IsEnabled="False"
@@ -75,11 +80,13 @@
             <ScrollViewer
                 x:Name="PanelScrollViewer"
                 Grid.Row="1"
-                Margin="5">
+                Margin="5"
+                d:IsHidden="True">
                 <StackPanel
                     x:Name="PanelStackPanel"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
+                    d:IsHidden="True"
                     Orientation="Vertical" />
             </ScrollViewer>
 
@@ -87,6 +94,7 @@
             <StackPanel
                 Grid.Row="2"
                 Margin="3"
+                d:IsHidden="True"
                 Orientation="Vertical">
                 <Button
                     x:Name="btn_Lecturer"
@@ -95,6 +103,7 @@
                     Height="27"
                     Margin="5"
                     HorizontalAlignment="Center"
+                    d:IsHidden="True"
                     Click="btn_Lecturer_Click"
                     Content="Lecturer" />
                 <Button
@@ -104,6 +113,7 @@
                     Height="27"
                     Margin="5"
                     HorizontalAlignment="Center"
+                    d:IsHidden="True"
                     Click="btn_Creators_Click"
                     Content="Creators" />
                 <Button
@@ -113,6 +123,7 @@
                     Height="27"
                     Margin="5"
                     HorizontalAlignment="Center"
+                    d:IsHidden="True"
                     Click="btn_Course_Click"
                     Content="Course" />
             </StackPanel>
@@ -133,1123 +144,861 @@
             CornerRadius="1000">
             <Grid
                 x:Name="GUIGrid"
-                Height="500"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center">
-
-                <Ellipse
-                    x:Name="A"
-                    Width="24"
-                    Height="26"
-                    Margin="220,83,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Fill="Red"
-                    Stroke="Black" />
-                <Ellipse
-                    x:Name="B"
-                    Width="26"
-                    Height="26"
-                    Margin="444,83,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Fill="#FFAE8989"
-                    Stroke="Black" />
-                <Ellipse
-                    x:Name="C"
-                    Width="26"
-                    Height="26"
-                    Margin="330,135,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Fill="#FF2F2F6E"
-                    Stroke="Black" />
-                <Ellipse
-                    x:Name="D"
-                    Width="26"
-                    Height="26"
-                    Margin="84,181,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Fill="#FF2D2DEE"
-                    Stroke="Black" />
-                <Ellipse
-                    x:Name="E"
-                    Width="24"
-                    Height="26"
-                    Margin="220,183,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Fill="#FFBDAD06"
-                    Stroke="Black" />
-                <Ellipse
-                    x:Name="F"
-                    Width="26"
-                    Height="26"
-                    Margin="444,183,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Fill="#FF915E22"
-                    Stroke="Black" />
-                <Ellipse
-                    x:Name="G"
-                    Width="24"
-                    Height="26"
-                    Margin="554,181,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Fill="#FF9C9CC7"
-                    Stroke="Black" />
-                <Ellipse
-                    x:Name="H"
-                    Width="26"
-                    Height="26"
-                    Margin="152,248,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Fill="#FF878797"
-                    Stroke="Black" />
-                <Ellipse
-                    x:Name="I"
-                    Width="26"
-                    Height="26"
-                    Margin="331,254,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Fill="#FF88FFF5"
-                    Stroke="Black" />
-                <Ellipse
-                    x:Name="J"
-                    Width="26"
-                    Height="26"
-                    Margin="498,0,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Fill="#FFC5C5C5"
-                    Stroke="Black" />
-                <Ellipse
-                    x:Name="K"
-                    Width="26"
-                    Height="26"
-                    Margin="84,311,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Fill="#FFFF00D1"
-                    Stroke="Black" />
-                <Ellipse
-                    x:Name="L"
-                    Width="24"
-                    Height="26"
-                    Margin="220,313,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Fill="#FF3ABFE6"
-                    Stroke="Black" />
-                <Ellipse
-                    x:Name="M"
-                    Width="26"
-                    Height="26"
-                    Margin="444,313,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Fill="#FFDBF00A"
-                    Stroke="Black" />
-                <Ellipse
-                    x:Name="N"
-                    Width="24"
-                    Height="26"
-                    Margin="554,311,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Fill="#FFB77DE0"
-                    Stroke="Black" />
-                <Ellipse
-                    x:Name="O"
-                    Width="26"
-                    Height="26"
-                    Margin="329,361,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Fill="#FFE08B8B"
-                    Stroke="Black" />
-                <Ellipse
-                    x:Name="P"
-                    Width="24"
-                    Height="26"
-                    Margin="220,405,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Fill="#FFB300C5"
-                    Stroke="Black" />
-                <Ellipse
-                    x:Name="Q"
-                    Width="26"
-                    Height="26"
-                    Margin="444,405,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Fill="#FFD49B48"
-                    Stroke="Black" />
-
-                <Label
-                    x:Name="lbl_A"
-                    Width="24"
-                    Height="32"
-                    Margin="222,79,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="A"
-                    FontSize="16" />
-                <Label
-                    x:Name="lbl_B"
-                    Width="24"
-                    Height="32"
-                    Margin="448,79,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="B"
-                    FontSize="16" />
-                <Label
-                    x:Name="lbl_C"
-                    Width="24"
-                    Height="32"
-                    Margin="333,131,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="C"
-                    FontSize="16"
-                    Foreground="White" />
-                <Label
-                    x:Name="lbl_D"
-                    Width="24"
-                    Height="34"
-                    Margin="87,177,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="D"
-                    FontSize="16"
-                    Foreground="#FFF5F3F3" />
-                <Label
-                    x:Name="lbl_E"
-                    Width="22"
-                    Height="32"
-                    Margin="223,180,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="E"
-                    FontSize="16" />
-                <Label
-                    x:Name="lbl_F"
-                    Width="24"
-                    Height="32"
-                    Margin="448,180,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="F"
-                    FontSize="16"
-                    Foreground="White" />
-                <Label
-                    x:Name="lbl_G"
-                    Width="24"
-                    Height="32"
-                    Margin="555,177,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="G"
-                    FontSize="16"
-                    Foreground="White" />
-                <Label
-                    x:Name="lbl_H"
-                    Width="24"
-                    Height="34"
-                    Margin="154,244,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="H"
-                    FontSize="16"
-                    Foreground="White" />
-                <Label
-                    x:Name="lbl_I"
-                    Width="26"
-                    Height="34"
-                    Margin="336,250,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Background="{x:Null}"
-                    Content="I"
-                    FontSize="16"
-                    Foreground="#FF040303" />
-                <Label
-                    x:Name="lbl_J"
-                    Width="24"
-                    Height="34"
-                    Margin="503,0,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Content="J"
-                    FontSize="16" />
-                <Label
-                    x:Name="lbl_N"
-                    Width="24"
-                    Height="34"
-                    Margin="555,308,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="N"
-                    FontSize="16"
-                    Foreground="White" />
-                <Label
-                    x:Name="lbl_M"
-                    Width="26"
-                    Height="32"
-                    Margin="445,310,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="M"
-                    FontSize="16" />
-                <Label
-                    x:Name="lbl_L"
-                    Width="22"
-                    Height="32"
-                    Margin="224,309,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="L"
-                    FontSize="16" />
-                <Label
-                    x:Name="lbl_K"
-                    Width="24"
-                    Height="34"
-                    Margin="87,308,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="K"
-                    FontSize="16" />
-                <Label
-                    x:Name="lbl_O"
-                    Width="36"
-                    Height="32"
-                    Margin="326,360,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="&quot;O&quot;"
-                    FontSize="14" />
-                <Label
-                    x:Name="lbl_P"
-                    Width="22"
-                    Height="32"
-                    Margin="224,403,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="P"
-                    FontSize="16" />
-                <Label
-                    x:Name="lbl_Q"
-                    Width="26"
-                    Height="32"
-                    Margin="446,402,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="Q"
-                    FontSize="16" />
-                <Label
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <!--<Label
                     x:Name="khatAB"
-                    Width="216"
-                    Height="30"
-                    Margin="234,76,0,0"
+                    Width="344"
+                    Height="56"
+                    Margin="301,105,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Content="__________________________________________________________________________________________________"
-                    Foreground="Red" />
-                <Label
+                    Foreground="Red" />-->
+
+                <Line
+                    x:Name="khatAB"
+                    Margin="301,105,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Stroke="Red"
+                    X1="0"
+                    X2="100" />
+                <Line
                     x:Name="khatEF"
-                    Width="211"
-                    Height="28"
-                    Margin="238,178,0,0"
+                    Margin="307,296,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Content="_________________________________________________________________________________"
-                    Foreground="#FFBDAD06" />
-                <Label
+                    Stroke="#FFBDAD06"
+                    X1="0"
+                    X2="100" />
+                <Line
                     x:Name="khatLM"
-                    Width="224"
-                    Height="30"
-                    Margin="239,307,0,0"
+                    Margin="309,538,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Content="________________________________________________________________________________"
-                    Foreground="#FF3ABFE6" />
-                <Label
+                    d:IsHidden="True"
+                    Stroke="#FF3ABFE6"
+                    X1="0"
+                    X2="100" />
+                <Line
                     x:Name="khatAD"
-                    Width="169"
-                    Height="28"
-                    Margin="78,124,0,0"
+                    Margin="52,195,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Content="_____________________________________________________________"
-                    Foreground="Red"
-                    RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    RenderTransformOrigin="0.5,0.5"
+                    Stroke="Red"
+                    X1="0"
+                    X2="100">
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleX="0.931" ScaleY="1.074" />
-                            <SkewTransform AngleX="10.362" />
-                            <RotateTransform Angle="-35.233" />
+                            <ScaleTransform ScaleX="0.988" ScaleY="1.012" />
+                            <SkewTransform AngleX="1.286" />
+                            <RotateTransform Angle="-39.695" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatBG"
-                    Width="156"
-                    Height="29"
-                    Margin="425,130,0,0"
+                    Width="249"
+                    Height="54"
+                    Margin="605,206,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="_____________________________________________________"
                     Foreground="#FFAE8989"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleX="0.896" ScaleY="1.116" />
-                            <SkewTransform AngleY="-10.394" />
-                            <RotateTransform Angle="-126.698" />
+                            <ScaleTransform ScaleX="0.988" ScaleY="1.012" />
+                            <SkewTransform AngleY="-1.254" />
+                            <RotateTransform Angle="-131.217" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatDK"
-                    Width="152"
-                    Height="30"
-                    Margin="16,238,0,0"
+                    Width="242"
+                    Height="57"
+                    Margin="-47,408,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="___________________________________________________"
                     Foreground="#FF2D2DEE"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleX="0.832" ScaleY="1.201" />
-                            <SkewTransform AngleX="0.118" />
-                            <RotateTransform Angle="-89.617" />
+                            <ScaleTransform ScaleX="0.978" ScaleY="1.022" />
+                            <SkewTransform AngleX="0.014" />
+                            <RotateTransform Angle="-89.674" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatGN"
-                    Width="150"
-                    Height="30"
-                    Margin="486,238,0,0"
+                    Width="239"
+                    Height="57"
+                    Margin="702,408,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="___________________________________________________"
                     Foreground="#FF9C9CC7"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleX="0.832" ScaleY="1.201" />
-                            <SkewTransform AngleX="0.118" />
-                            <RotateTransform Angle="-89.617" />
+                            <ScaleTransform ScaleX="0.978" ScaleY="1.022" />
+                            <SkewTransform AngleX="0.014" />
+                            <RotateTransform Angle="-89.674" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatKP"
-                    Width="161"
-                    Height="28"
-                    Margin="87,356,0,0"
+                    Width="257"
+                    Height="53"
+                    Margin="66,629,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="_____________________________________________________________"
                     Foreground="#FFFF00D1"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleX="0.934" ScaleY="1.071" />
-                            <SkewTransform AngleX="-10.31" />
-                            <RotateTransform Angle="34.749" />
+                            <ScaleTransform ScaleX="0.99" ScaleY="1.01" />
+                            <SkewTransform AngleX="-1.262" />
+                            <RotateTransform Angle="39.19" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatNQ"
-                    Width="145"
-                    Height="28"
-                    Margin="438,353,0,0"
+                    Width="231"
+                    Height="52"
+                    Margin="626,624,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="____________________________________________________"
                     Foreground="#FFB77DE0"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleX="0.917" ScaleY="1.09" />
-                            <SkewTransform AngleX="10.45" />
-                            <RotateTransform Angle="-40.761" />
+                            <ScaleTransform ScaleX="0.989" ScaleY="1.011" />
+                            <SkewTransform AngleX="1.261" />
+                            <RotateTransform Angle="-45.372" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatHI"
-                    Width="174"
-                    Height="28"
-                    Margin="171,245,0,0"
+                    Width="278"
+                    Height="53"
+                    Margin="200,421,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="______________________________________________________________"
                     Foreground="#FF878797" />
-                <Label
+                <Line
                     x:Name="khatIJ"
-                    Width="153"
-                    Height="28"
-                    Margin="351,245,0,0"
+                    Width="244"
+                    Height="53"
+                    Margin="487,421,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="______________________________________________________________"
                     Foreground="#FFC5C5C5" />
-                <Label
+                <Line
                     x:Name="khatCE"
-                    Width="113"
-                    Height="29"
-                    Margin="229,153,0,0"
+                    Width="180"
+                    Height="54"
+                    Margin="293,249,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="______________________________________________________________"
                     Foreground="#FF2F2F6E"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleX="0.966" ScaleY="1.035" />
-                            <SkewTransform AngleX="8.632" />
-                            <RotateTransform Angle="-21.813" />
+                            <ScaleTransform ScaleX="0.991" ScaleY="1.009" />
+                            <SkewTransform AngleX="1.378" />
+                            <RotateTransform Angle="-25.192" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatBC"
-                    Width="120"
-                    Height="28"
-                    Margin="338,99,0,0"
+                    Width="192"
+                    Height="52"
+                    Margin="466,148,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="______________________________________________________________"
                     Foreground="#FFAE8989"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleX="0.967" ScaleY="1.034" />
-                            <SkewTransform AngleX="8.6" />
-                            <RotateTransform Angle="-23.439" />
+                            <ScaleTransform ScaleX="0.996" ScaleY="1.004" />
+                            <SkewTransform AngleX="1.034" />
+                            <RotateTransform Angle="-27" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatAC"
-                    Width="121"
-                    Height="28"
-                    Margin="226,100,0,0"
+                    Width="193"
+                    Height="52"
+                    Margin="288,150,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="______________________________________________________________"
                     Foreground="Red"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleX="0.965" ScaleY="1.036" />
-                            <SkewTransform AngleX="-8.741" />
-                            <RotateTransform Angle="24.059" />
+                            <ScaleTransform ScaleX="0.995" ScaleY="1.005" />
+                            <SkewTransform AngleX="-1.051" />
+                            <RotateTransform Angle="27.687" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatCF"
-                    Width="120"
-                    Height="29"
-                    Margin="338,153,0,0"
+                    Width="192"
+                    Height="54"
+                    Margin="466,249,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="______________________________________________________________"
                     Foreground="#FF2F2F6E"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleX="0.967" ScaleY="1.034" />
-                            <SkewTransform AngleX="-8.564" />
-                            <RotateTransform Angle="22.365" />
+                            <ScaleTransform ScaleX="0.993" ScaleY="1.007" />
+                            <SkewTransform AngleX="-1.206" />
+                            <RotateTransform Angle="25.807" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatCI"
-                    Width="108"
-                    Height="28"
-                    Margin="295,194,0,0"
+                    Width="172"
+                    Height="52"
+                    Margin="398,326,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="______________________________________________________________"
                     Foreground="#FF2F2F6E"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleX="0.967" ScaleY="1.034" />
-                            <SkewTransform AngleX="-8.564" />
-                            <RotateTransform Angle="90.179" />
+                            <ScaleTransform ScaleX="1.136" ScaleY="0.88" />
+                            <SkewTransform AngleX="-10.093" />
+                            <RotateTransform Angle="90.152" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatEH"
-                    Width="84"
-                    Height="28"
-                    Margin="157,212,0,0"
+                    Width="134"
+                    Height="52"
+                    Margin="178,360,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="_________________________________________________________________________________"
                     Foreground="#FFBDAD06"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-40.839" />
+                            <ScaleTransform ScaleX="1.065" ScaleY="0.939" />
+                            <SkewTransform AngleY="-9.118" />
+                            <RotateTransform Angle="-36.333" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatDE"
-                    Width="143"
-                    Height="30"
-                    Margin="93,175,0,0"
+                    Width="228"
+                    Height="56"
+                    Margin="76,290,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="_____________________________________________________"
                     Foreground="#FF2D2DEE"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleX="0.832" ScaleY="1.201" />
-                            <SkewTransform AngleX="0.118" />
-                            <RotateTransform Angle="0.463" />
+                            <SkewTransform AngleX="0" AngleY="0.251" />
+                            <RotateTransform Angle="0.294" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatDH"
-                    Width="99"
-                    Height="30"
-                    Margin="84,210,0,0"
+                    Width="157"
+                    Height="56"
+                    Margin="62,356,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="_____________________________________________________"
                     Foreground="#FF2D2DEE"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleX="0.832" ScaleY="1.201" />
-                            <SkewTransform AngleX="0.118" />
-                            <RotateTransform Angle="47.467" />
+                            <ScaleTransform ScaleX="0.902" ScaleY="1.108" />
+                            <SkewTransform AngleX="0" AngleY="9.298" />
+                            <RotateTransform Angle="42.727" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatHK"
-                    Width="84"
-                    Height="28"
-                    Margin="88,274,0,0"
+                    Width="134"
+                    Height="52"
+                    Margin="68,476,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="______________________________________________________________"
                     Foreground="#FF878797"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-41.242" />
+                            <ScaleTransform ScaleX="1.066" ScaleY="0.938" />
+                            <SkewTransform AngleY="-9.136" />
+                            <RotateTransform Angle="-36.722" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatDI"
-                    Width="118"
-                    Height="28"
-                    Margin="231,214,0,0"
+                    Width="188"
+                    Height="53"
+                    Margin="296,363,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="_________________________________________________________________________________"
                     Foreground="#FFBDAD06"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="31.052" />
+                            <ScaleTransform ScaleX="1.039" ScaleY="0.963" />
+                            <SkewTransform AngleY="8.158" />
+                            <RotateTransform Angle="27.126" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatFI"
-                    Width="118"
-                    Height="28"
-                    Margin="339,214,0,0"
+                    Width="188"
+                    Height="53"
+                    Margin="468,363,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="_________________________________________________________________________________"
                     Foreground="#FF915E22"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-30.323" />
+                            <ScaleTransform ScaleX="1.037" ScaleY="0.964" />
+                            <SkewTransform AngleY="-8.047" />
+                            <RotateTransform Angle="-26.458" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatFG"
-                    Width="95"
-                    Height="30"
-                    Margin="464,177,0,0"
+                    Width="152"
+                    Height="56"
+                    Margin="667,294,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="_________________________________________________________________________________"
                     Foreground="#FF915E22"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-0.441" />
+                            <SkewTransform AngleY="-0.143" />
+                            <RotateTransform Angle="-0.375" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatFJ"
-                    Width="73"
-                    Height="30"
-                    Margin="450,212,0,0"
+                    Width="116"
+                    Height="56"
+                    Margin="645,360,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="_________________________________________________________________________________"
                     Foreground="#FF915E22"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="51.017" />
+                            <ScaleTransform ScaleX="1.096" ScaleY="0.913" />
+                            <SkewTransform AngleY="9.014" />
+                            <RotateTransform Angle="46.434" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatGJ"
-                    Width="86"
-                    Height="30"
-                    Margin="492,212,0,0"
+                    Width="137"
+                    Height="56"
+                    Margin="712,360,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="___________________________________________________"
                     Foreground="#FF9C9CC7"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleX="0.832" ScaleY="1.201" />
-                            <SkewTransform AngleX="0.118" />
-                            <RotateTransform Angle="-53.213" />
+                            <ScaleTransform ScaleX="0.917" ScaleY="1.089" />
+                            <SkewTransform AngleX="0" AngleY="-8.721" />
+                            <RotateTransform Angle="-48.813" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatJM"
-                    Width="67"
-                    Height="28"
-                    Margin="449,279,0,0"
+                    Width="107"
+                    Height="53"
+                    Margin="643,485,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="______________________________________________________________"
                     Foreground="#FFC5C5C5"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-48.607" />
+                            <ScaleTransform ScaleX="1.088" ScaleY="0.919" />
+                            <SkewTransform AngleY="-9.142" />
+                            <RotateTransform Angle="-43.99" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatJN"
-                    Width="66"
-                    Height="28"
-                    Margin="502,284,0,0"
+                    Width="105"
+                    Height="53"
+                    Margin="728,494,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="______________________________________________________________"
                     Foreground="#FFC5C5C5"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-132.632" />
+                            <ScaleTransform ScaleX="1.098" ScaleY="0.91" />
+                            <SkewTransform AngleX="9.182" />
+                            <RotateTransform Angle="-128.071" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatNM"
-                    Width="95"
-                    Height="28"
-                    Margin="464,317,0,0"
+                    Width="152"
+                    Height="53"
+                    Margin="667,556,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="______________________________________________________________"
                     Foreground="#FFB77DE0"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-179.407" />
+                            <SkewTransform AngleX="0.192" />
+                            <RotateTransform Angle="-179.303" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatIL"
-                    Width="111"
-                    Height="28"
-                    Margin="230,278,0,0"
+                    Width="177"
+                    Height="53"
+                    Margin="294,483,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="______________________________________________________________"
                     Foreground="#FF88FFF5"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-28.634" />
+                            <ScaleTransform ScaleX="1.033" ScaleY="0.968" />
+                            <SkewTransform AngleY="-7.77" />
+                            <RotateTransform Angle="-24.918" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatIM"
-                    Width="113"
-                    Height="28"
-                    Margin="346,277,0,0"
+                    Width="180"
+                    Height="53"
+                    Margin="479,481,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="______________________________________________________________"
                     Foreground="#FF88FFF5"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="29.029" />
+                            <ScaleTransform ScaleX="1.034" ScaleY="0.967" />
+                            <SkewTransform AngleY="7.837" />
+                            <RotateTransform Angle="25.277" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatIO"
-                    Width="95"
-                    Height="28"
-                    Margin="290,305,0,0"
-                    HorizontalAlignment="Left"
+                    Width="151"
+                    Height="52"
+                    Margin="0,534,0,0"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="______________________________________________________________"
                     Foreground="#FF88FFF5"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-89.969" />
+                            <ScaleTransform ScaleX="1.175" ScaleY="0.851" />
+                            <SkewTransform AngleY="-0.01" />
+                            <RotateTransform Angle="-89.964" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatHL"
-                    Width="79"
-                    Height="28"
-                    Margin="161,277,0,0"
+                    Width="126"
+                    Height="53"
+                    Margin="184,481,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="______________________________________________________________"
                     Foreground="#FF878797"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="41.03" />
+                            <ScaleTransform ScaleX="1.065" ScaleY="0.939" />
+                            <SkewTransform AngleY="9.126" />
+                            <RotateTransform Angle="36.517" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatKL"
-                    Width="132"
-                    Height="28"
-                    Margin="98,305,0,0"
+                    Width="210"
+                    Height="52"
+                    Margin="84,534,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="_____________________________________________________________"
                     Foreground="#FFFF00D1"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleX="0.934" ScaleY="1.071" />
-                            <SkewTransform AngleX="-10.31" />
-                            <RotateTransform Angle="0.596" />
+                            <SkewTransform AngleX="-8.61" />
+                            <RotateTransform Angle="0.7" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatLO"
-                    Width="106"
-                    Height="30"
-                    Margin="234,332,0,0"
+                    Width="169"
+                    Height="57"
+                    Margin="301,584,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="________________________________________________________________________________"
                     Foreground="#FF3ABFE6"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="23.226" />
+                            <ScaleTransform ScaleX="1.022" ScaleY="0.978" />
+                            <SkewTransform AngleY="6.705" />
+                            <RotateTransform Angle="20.059" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatLP"
-                    Width="77"
-                    Height="30"
-                    Margin="199,357,0,0"
+                    Width="123"
+                    Height="56"
+                    Margin="245,631,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="________________________________________________________________________________"
                     Foreground="#FF3ABFE6"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="91.3" />
+                            <ScaleTransform ScaleX="1.175" ScaleY="0.851" />
+                            <SkewTransform AngleX="-0.422" />
+                            <RotateTransform Angle="91.106" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatMO"
-                    Width="110"
-                    Height="30"
-                    Margin="349,342,0,0"
+                    Width="175"
+                    Height="56"
+                    Margin="484,603,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="________________________________________________________________________________"
                     Foreground="#FFDBF00A"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="158.854" />
+                            <ScaleTransform ScaleX="1.025" ScaleY="0.976" />
+                            <SkewTransform AngleX="-6.229" />
+                            <RotateTransform Angle="155.554" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatMQ"
-                    Width="75"
-                    Height="30"
-                    Margin="424,358,0,0"
+                    Width="119"
+                    Height="56"
+                    Margin="604,633,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="________________________________________________________________________________"
                     Foreground="#FFDBF00A"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="90.512" />
+                            <ScaleTransform ScaleX="1.175" ScaleY="0.851" />
+                            <SkewTransform AngleX="-0.166" />
+                            <RotateTransform Angle="90.436" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatOP"
-                    Width="104"
-                    Height="30"
-                    Margin="237,385,0,0"
+                    Width="166"
+                    Height="56"
+                    Margin="305,684,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="________________________________________________________________________________"
                     Foreground="#FFE08B8B"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="158.854" />
+                            <ScaleTransform ScaleX="1.025" ScaleY="0.976" />
+                            <SkewTransform AngleX="-6.229" />
+                            <RotateTransform Angle="155.554" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatOQ"
-                    Width="104"
-                    Height="30"
-                    Margin="345,385,0,0"
+                    Width="165"
+                    Height="56"
+                    Margin="478,684,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="________________________________________________________________________________"
                     Foreground="#FFE08B8B"
                     RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="200.951" />
+                            <ScaleTransform ScaleX="1.024" ScaleY="0.976" />
+                            <SkewTransform AngleX="6.183" />
+                            <RotateTransform Angle="-155.773" />
                             <TranslateTransform />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
+                    </Line.RenderTransform>
+                </Line>
+                <Line
                     x:Name="khatPQ"
-                    Width="224"
-                    Height="28"
-                    Margin="238,401,0,0"
+                    Width="357"
+                    Height="52"
+                    Margin="267,709,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="__________________________________________________________________________________">
-                    <Label.Foreground>
+                    <Line.Foreground>
                         <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                             <GradientStop Offset="0.903" Color="Black" />
                             <GradientStop Offset="0.226" Color="#FFD49B48" />
                             <GradientStop Offset="0.381" Color="#FFB300C5" />
                         </LinearGradientBrush>
-                    </Label.Foreground>
-                </Label>
+                    </Line.Foreground>
+                </Line>
                 <Label
                     x:Name="lbl_ab"
-                    Height="23"
-                    Margin="321,61,0,0"
+                    Width="93"
+                    Height="43"
+                    Margin="439,77,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="AB&lt;---&gt;BA"
                     FontSize="9"
                     FontWeight="Bold" />
                 <Label
                     x:Name="lbl_ac"
-                    Height="23"
-                    Margin="290,98,0,0"
+                    Width="91"
+                    Height="43"
+                    Margin="390,146,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="AC&lt;---&gt;CA"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="26.723" />
+                            <ScaleTransform ScaleX="1.029" ScaleY="0.972" />
+                            <SkewTransform AngleY="7.424" />
+                            <RotateTransform Angle="23.189" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_bc"
-                    Height="23"
-                    Margin="343,96,0,0"
+                    Width="90"
+                    Height="43"
+                    Margin="474,142,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="CB&lt;---&gt;BC"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-19.841" />
+                            <ScaleTransform ScaleX="1.016" ScaleY="0.984" />
+                            <SkewTransform AngleY="-5.913" />
+                            <RotateTransform Angle="-17.067" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_ad"
-                    Height="23"
-                    Margin="121,110,0,0"
+                    Width="94"
+                    Height="44"
+                    Margin="121,168,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="DA&lt;---&gt;AD"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-34.073" />
+                            <ScaleTransform ScaleX="1.046" ScaleY="0.956" />
+                            <SkewTransform AngleY="-8.561" />
+                            <RotateTransform Angle="-29.92" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_dk"
-                    Height="23"
-                    Margin="44,244,0,0"
+                    Width="93"
+                    Height="43"
+                    Margin="-2,420,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="KD&lt;---&gt;DK"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-90.426" />
+                            <ScaleTransform ScaleX="1.175" ScaleY="0.851" />
+                            <SkewTransform AngleX="0.138" />
+                            <RotateTransform Angle="-90.362" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_de"
-                    Height="23"
-                    Margin="137,161,0,0"
+                    Width="90"
+                    Height="43"
+                    Margin="146,264,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="DE&lt;---&gt;ED"
                     FontSize="9"
                     FontWeight="Bold"
@@ -1257,75 +1006,83 @@
                     <Label.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-0.374" />
+                            <SkewTransform AngleY="-0.121" />
+                            <RotateTransform Angle="-0.318" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_dh"
-                    Height="23"
-                    Margin="116,203,0,0"
+                    Width="96"
+                    Height="43"
+                    Margin="113,343,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="DH&lt;---&gt;HD"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="49.239" />
+                            <ScaleTransform ScaleX="1.09" ScaleY="0.917" />
+                            <SkewTransform AngleY="9.114" />
+                            <RotateTransform Angle="44.628" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_wh"
-                    Height="23"
-                    Margin="159,199,0,0"
+                    Width="91"
+                    Height="43"
+                    Margin="181,335,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="HE&lt;---&gt;EH"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-41.374" />
+                            <ScaleTransform ScaleX="1.066" ScaleY="0.938" />
+                            <SkewTransform AngleY="-9.141" />
+                            <RotateTransform Angle="-36.85" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_hk"
-                    Height="23"
-                    Margin="86,265,0,0"
+                    Width="94"
+                    Height="43"
+                    Margin="65,459,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="KH&lt;---&gt;HK"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-40.785" />
+                            <ScaleTransform ScaleX="1.065" ScaleY="0.939" />
+                            <SkewTransform AngleY="-9.115" />
+                            <RotateTransform Angle="-36.281" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_kl"
-                    Height="23"
-                    Margin="136,290,0,0"
+                    Width="87"
+                    Height="43"
+                    Margin="144,506,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="KL&lt;---&gt;LK"
                     FontSize="9"
                     FontWeight="Bold"
@@ -1333,37 +1090,41 @@
                     <Label.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="0.324" />
+                            <SkewTransform AngleY="0.105" />
+                            <RotateTransform Angle="0.276" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_hl"
-                    Height="23"
-                    Margin="191,269,0,0"
+                    Width="90"
+                    Height="43"
+                    Margin="232,466,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="HL&lt;---&gt;LH"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="43.824" />
+                            <ScaleTransform ScaleX="1.074" ScaleY="0.931" />
+                            <SkewTransform AngleY="9.206" />
+                            <RotateTransform Angle="39.236" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_hi"
-                    Height="23"
-                    Margin="214,229,0,0"
+                    Width="84"
+                    Height="44"
+                    Margin="269,391,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="HI&lt;---&gt;IH"
                     FontSize="9"
                     FontWeight="Bold"
@@ -1371,264 +1132,294 @@
                     <Label.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-0.185" />
+                            <SkewTransform AngleY="-0.06" />
+                            <RotateTransform Angle="-0.157" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_ei"
-                    Height="23"
-                    Margin="283,206,0,0"
+                    Width="78"
+                    Height="43"
+                    Margin="379,348,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="EI&lt;---&gt;IE"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="31.681" />
+                            <ScaleTransform ScaleX="1.04" ScaleY="0.961" />
+                            <SkewTransform AngleY="8.25" />
+                            <RotateTransform Angle="27.705" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_ce"
-                    Height="23"
-                    Margin="250,140,0,0"
+                    Width="87"
+                    Height="43"
+                    Margin="326,225,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="EC&lt;---&gt;CE"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-22.255" />
+                            <ScaleTransform ScaleX="1.02" ScaleY="0.98" />
+                            <SkewTransform AngleY="-6.487" />
+                            <RotateTransform Angle="-19.197" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_cf"
-                    Height="23"
-                    Margin="376,139,0,0"
+                    Width="86"
+                    Height="43"
+                    Margin="527,223,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="CF&lt;---&gt;FC"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="24.577" />
+                            <ScaleTransform ScaleX="1.025" ScaleY="0.976" />
+                            <SkewTransform AngleY="6.995" />
+                            <RotateTransform Angle="21.263" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_bg"
-                    Height="23"
-                    Margin="496,113,0,0"
+                    Width="93"
+                    Height="43"
+                    Margin="718,174,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="BG&lt;---&gt;GB"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="48.071" />
+                            <ScaleTransform ScaleX="1.086" ScaleY="0.92" />
+                            <SkewTransform AngleY="9.161" />
+                            <RotateTransform Angle="43.451" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_fg"
-                    Height="23"
-                    Margin="470,162,0,0"
+                    Width="89"
+                    Height="43"
+                    Margin="677,266,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="FG&lt;---&gt;GF"
                     FontSize="9"
                     FontWeight="Bold" />
                 <Label
                     x:Name="lbl_gj"
-                    Height="23"
-                    Margin="492,205,0,0"
+                    Width="87"
+                    Height="44"
+                    Margin="712,346,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="JG&lt;---&gt;GJ"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-52.325" />
+                            <ScaleTransform ScaleX="1.1" ScaleY="0.909" />
+                            <SkewTransform AngleY="-8.919" />
+                            <RotateTransform Angle="-47.775" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_gn"
-                    Height="23"
-                    Margin="561,249,0,0"
+                    Width="97"
+                    Height="43"
+                    Margin="822,429,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="GN&lt;---&gt;NG"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="89.996" />
+                            <ScaleTransform ScaleX="1.175" ScaleY="0.851" />
+                            <SkewTransform AngleY="0.001" />
+                            <RotateTransform Angle="89.995" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_ef"
-                    Height="23"
-                    Margin="293,165,0,0"
+                    Width="84"
+                    Height="43"
+                    Margin="395,272,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="EF&lt;---&gt;FE"
                     FontSize="9"
                     FontWeight="Bold" />
                 <Label
                     x:Name="lbl_CI"
-                    Height="23"
-                    Margin="340,188,0,0"
+                    Width="80"
+                    Height="43"
+                    Margin="470,315,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="CI&lt;---&gt;IC"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="89.696" />
+                            <ScaleTransform ScaleX="1.175" ScaleY="0.851" />
+                            <SkewTransform AngleY="0.099" />
+                            <RotateTransform Angle="89.643" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_FI"
-                    Height="23"
-                    Margin="374,196,0,0"
+                    Width="77"
+                    Height="43"
+                    Margin="524,330,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="IF&lt;---&gt;FI"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-29.077" />
+                            <ScaleTransform ScaleX="1.034" ScaleY="0.967" />
+                            <SkewTransform AngleY="-7.845" />
+                            <RotateTransform Angle="-25.321" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_fj"
-                    Height="23"
-                    Margin="437,227,0,0"
+                    Width="81"
+                    Height="43"
+                    Margin="624,388,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="FJ&lt;---&gt;JF"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="54.883" />
+                            <ScaleTransform ScaleX="1.107" ScaleY="0.903" />
+                            <SkewTransform AngleY="8.679" />
+                            <RotateTransform Angle="50.426" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_im"
-                    Height="23"
-                    Margin="390,268,0,0"
+                    Width="91"
+                    Height="43"
+                    Margin="549,465,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="IM&lt;---&gt;MI"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="32.168" />
+                            <ScaleTransform ScaleX="1.042" ScaleY="0.96" />
+                            <SkewTransform AngleY="8.318" />
+                            <RotateTransform Angle="28.154" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_jm"
-                    Height="23"
-                    Margin="439,269,0,0"
+                    Width="94"
+                    Height="43"
+                    Margin="627,466,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="MJ&lt;---&gt;JM"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-44.842" />
+                            <ScaleTransform ScaleX="1.077" ScaleY="0.929" />
+                            <SkewTransform AngleY="-9.213" />
+                            <RotateTransform Angle="-40.237" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_jn"
-                    Height="23"
-                    Margin="526,265,0,0"
+                    Width="89"
+                    Height="43"
+                    Margin="766,459,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="JN&lt;---&gt;NJ"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="48.418" />
+                            <ScaleTransform ScaleX="1.087" ScaleY="0.92" />
+                            <SkewTransform AngleY="9.149" />
+                            <RotateTransform Angle="43.8" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_mn"
-                    Height="23"
-                    Margin="483,292,0,0"
+                    Width="103"
+                    Height="44"
+                    Margin="698,509,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="MN&lt;---&gt;NM"
                     FontSize="9"
                     FontWeight="Bold"
@@ -1636,37 +1427,41 @@
                     <Label.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="0.661" />
+                            <SkewTransform AngleY="0.214" />
+                            <RotateTransform Angle="0.562" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_il"
-                    Height="23"
-                    Margin="260,260,0,0"
+                    Width="77"
+                    Height="43"
+                    Margin="342,450,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="LI&lt;---&gt;IL"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-30.072" />
+                            <ScaleTransform ScaleX="1.037" ScaleY="0.965" />
+                            <SkewTransform AngleY="-8.008" />
+                            <RotateTransform Angle="-26.228" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_lm"
-                    Height="23"
-                    Margin="277,293,0,0"
+                    Width="96"
+                    Height="43"
+                    Margin="369,511,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="LM&lt;---&gt;ML"
                     FontSize="9"
                     FontWeight="Bold"
@@ -1674,170 +1469,188 @@
                     <Label.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-0.061" />
+                            <SkewTransform AngleY="-0.02" />
+                            <RotateTransform Angle="-0.052" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_io"
-                    Height="23"
-                    Margin="338,288,0,0"
+                    Width="85"
+                    Height="43"
+                    Margin="466,502,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="IO&lt;---&gt;OI"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="89.326" />
+                            <ScaleTransform ScaleX="1.175" ScaleY="0.851" />
+                            <SkewTransform AngleY="0.219" />
+                            <RotateTransform Angle="89.208" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_mo"
-                    Height="23"
-                    Margin="354,323,0,0"
+                    Width="103"
+                    Height="43"
+                    Margin="492,568,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="OM&lt;---&gt;MO"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-16.195" />
+                            <ScaleTransform ScaleX="1.011" ScaleY="0.989" />
+                            <SkewTransform AngleY="-4.966" />
+                            <RotateTransform Angle="-13.881" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_lo"
-                    Height="23"
-                    Margin="240,356,0,0"
+                    Width="90"
+                    Height="43"
+                    Margin="310,629,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="LO&lt;---&gt;OL"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="23.36" />
+                            <ScaleTransform ScaleX="1.022" ScaleY="0.978" />
+                            <SkewTransform AngleY="6.735" />
+                            <RotateTransform Angle="20.178" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_lp"
-                    Height="23"
-                    Margin="182,357,0,0"
+                    Width="86"
+                    Height="43"
+                    Margin="218,631,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="LP&lt;---&gt;PL"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="91.415" />
+                            <ScaleTransform ScaleX="1.175" ScaleY="0.851" />
+                            <SkewTransform AngleX="-0.459" />
+                            <RotateTransform Angle="91.204" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_kp"
-                    Height="23"
-                    Margin="113,374,0,0"
+                    Width="90"
+                    Height="43"
+                    Margin="108,663,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="KP&lt;---&gt;PK"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="34.457" />
+                            <ScaleTransform ScaleX="1.047" ScaleY="0.955" />
+                            <SkewTransform AngleY="8.606" />
+                            <RotateTransform Angle="30.278" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_po"
-                    Height="23"
-                    Margin="279,400,0,0"
+                    Width="93"
+                    Height="43"
+                    Margin="372,712,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="PO&lt;---&gt;OP"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-22.349" />
+                            <ScaleTransform ScaleX="1.021" ScaleY="0.98" />
+                            <SkewTransform AngleY="-6.509" />
+                            <RotateTransform Angle="-19.281" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_oq"
-                    Height="23"
-                    Margin="379,363,0,0"
+                    Width="97"
+                    Height="44"
+                    Margin="532,642,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="OQ&lt;---&gt;QO"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="19.991" />
+                            <ScaleTransform ScaleX="1.017" ScaleY="0.984" />
+                            <SkewTransform AngleY="5.95" />
+                            <RotateTransform Angle="17.199" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_mq"
-                    Height="23"
-                    Margin="451,358,0,0"
+                    Width="102"
+                    Height="43"
+                    Margin="647,633,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="MQ&lt;---&gt;QM"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="87.828" />
+                            <ScaleTransform ScaleX="1.175" ScaleY="0.851" />
+                            <SkewTransform AngleY="0.704" />
+                            <RotateTransform Angle="87.448" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_pq"
-                    Height="23"
-                    Margin="309,435,0,0"
-                    HorizontalAlignment="Left"
+                    Width="93"
+                    Height="43"
+                    Margin="0,777,0,0"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="PQ&lt;---&gt;QP"
                     FontSize="9"
                     FontWeight="Bold"
@@ -1845,114 +1658,123 @@
                     <Label.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-0.061" />
+                            <SkewTransform AngleY="-0.02" />
+                            <RotateTransform Angle="-0.052" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="lbl_nq"
-                    Height="23"
-                    Margin="503,376,0,0"
+                    Width="99"
+                    Height="43"
+                    Margin="729,667,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="QN&lt;---&gt;NQ"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-41.662" />
+                            <ScaleTransform ScaleX="1.067" ScaleY="0.937" />
+                            <SkewTransform AngleY="-9.152" />
+                            <RotateTransform Angle="-37.129" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="khatAD_Copy"
-                    Width="99"
-                    Height="31"
-                    Margin="182,127,0,0"
+                    Width="158"
+                    Height="58"
+                    Margin="216,201,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="_____________________________________________________________"
                     Foreground="Red"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleX="0.936" ScaleY="1.074" />
-                            <SkewTransform AngleX="10.362" AngleY="1.834" />
-                            <RotateTransform Angle="-90.204" />
+                            <ScaleTransform ScaleX="1.1" ScaleY="0.908" />
+                            <SkewTransform AngleX="13.752" AngleY="0" />
+                            <RotateTransform Angle="-88.613" />
                             <TranslateTransform X="-2.472" Y="0.461" />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="khatBG_Copy"
-                    Width="96"
-                    Height="29"
-                    Margin="404,130,0,0"
+                    Width="153"
+                    Height="54"
+                    Margin="572,206,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="_____________________________________________________"
                     Foreground="#FFAE8989"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleX="0.896" ScaleY="1.116" />
-                            <SkewTransform AngleY="-10.394" />
-                            <RotateTransform Angle="-79.553" />
+                            <ScaleTransform ScaleX="1.047" ScaleY="0.955" />
+                            <SkewTransform AngleY="-12.182" />
+                            <RotateTransform Angle="-77.773" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="bf_fb"
-                    Height="24"
-                    Margin="412,128,0,0"
+                    Width="87"
+                    Height="45"
+                    Margin="580,202,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="FB&lt;---&gt;BF"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="269.923" />
+                            <ScaleTransform ScaleX="1.175" ScaleY="0.851" />
+                            <SkewTransform AngleX="0.025" />
+                            <RotateTransform Angle="-90.066" />
                             <TranslateTransform X="-7.572" Y="-0.044" />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <Label
                     x:Name="ae_ea"
-                    Height="23"
-                    Margin="181,132,0,0"
+                    Width="89"
+                    Height="43"
+                    Margin="212,210,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Content="EA&lt;---&gt;AE"
                     FontSize="9"
                     FontWeight="Bold"
                     RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-90.261" />
+                            <ScaleTransform ScaleX="1.175" ScaleY="0.851" />
+                            <SkewTransform AngleX="0.085" />
+                            <RotateTransform Angle="-90.222" />
                             <TranslateTransform X="-7.084" Y="-0.039" />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
                 <TextBox
                     x:Name="EA_AE"
-                    Width="26"
-                    Height="16"
-                    Margin="194,137,0,0"
+                    Width="41"
+                    Height="30"
+                    Margin="246,217,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -1962,20 +1784,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-88.214" />
+                            <ScaleTransform ScaleX="1.175" ScaleY="0.851" />
+                            <SkewTransform AngleY="-0.579" />
+                            <RotateTransform Angle="-87.901" />
                             <TranslateTransform X="14.932" Y="-2.918" />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="BF_FB"
-                    Width="26"
-                    Height="16"
-                    Margin="419,133,0,0"
+                    Width="41"
+                    Height="30"
+                    Margin="605,209,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -1985,20 +1808,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="269.113" />
+                            <ScaleTransform ScaleX="1.175" ScaleY="0.851" />
+                            <SkewTransform AngleX="0.288" />
+                            <RotateTransform Angle="-90.755" />
                             <TranslateTransform X="15.442" Y="-2.907" />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="AB_BA"
-                    Width="26"
-                    Height="16"
-                    Margin="336,76,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="463,105,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2007,11 +1831,12 @@
                     TextWrapping="Wrap" />
                 <TextBox
                     x:Name="AD_DA"
-                    Width="26"
-                    Height="16"
-                    Margin="148,122,0,0"
+                    Width="41"
+                    Height="30"
+                    Margin="164,191,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2021,20 +1846,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-35.448" />
+                            <ScaleTransform ScaleX="1.05" ScaleY="0.952" />
+                            <SkewTransform AngleY="-8.714" />
+                            <RotateTransform Angle="-31.205" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="AC_CA"
-                    Width="26"
-                    Height="16"
-                    Margin="300,112,0,0"
+                    Width="41"
+                    Height="30"
+                    Margin="406,172,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2044,20 +1870,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="26.633" />
+                            <ScaleTransform ScaleX="1.029" ScaleY="0.972" />
+                            <SkewTransform AngleY="7.407" />
+                            <RotateTransform Angle="23.108" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="BC_CB"
-                    Width="26"
-                    Height="16"
-                    Margin="363,110,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="506,168,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2067,20 +1894,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-22.159" />
+                            <ScaleTransform ScaleX="1.02" ScaleY="0.98" />
+                            <SkewTransform AngleY="-6.465" />
+                            <RotateTransform Angle="-19.112" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="CE_EC"
-                    Width="26"
-                    Height="16"
-                    Margin="272,154,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="361,251,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2090,20 +1918,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-22.338" />
+                            <ScaleTransform ScaleX="1.021" ScaleY="0.98" />
+                            <SkewTransform AngleY="-6.506" />
+                            <RotateTransform Angle="-19.271" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="CF_FC"
-                    Width="26"
-                    Height="16"
-                    Margin="386,154,0,0"
+                    Width="41"
+                    Height="30"
+                    Margin="543,251,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2113,20 +1942,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="21.89" />
+                            <ScaleTransform ScaleX="1.02" ScaleY="0.981" />
+                            <SkewTransform AngleY="6.403" />
+                            <RotateTransform Angle="18.874" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="EF_FE"
-                    Width="26"
-                    Height="16"
-                    Margin="307,180,0,0"
+                    Width="41"
+                    Height="30"
+                    Margin="417,300,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2135,11 +1965,12 @@
                     TextWrapping="Wrap" />
                 <TextBox
                     x:Name="CI_IC"
-                    Width="26"
-                    Height="16"
-                    Margin="341,192,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="471,322,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2149,20 +1980,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="89.821" />
+                            <ScaleTransform ScaleX="1.175" ScaleY="0.851" />
+                            <SkewTransform AngleY="0.058" />
+                            <RotateTransform Angle="89.79" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="FI_IF"
-                    Width="26"
-                    Height="16"
-                    Margin="393,209,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="554,354,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2172,20 +2004,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-29.925" />
+                            <ScaleTransform ScaleX="1.036" ScaleY="0.965" />
+                            <SkewTransform AngleY="-7.984" />
+                            <RotateTransform Angle="-26.094" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="EI_IE"
-                    Width="26"
-                    Height="16"
-                    Margin="289,219,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="388,373,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2195,20 +2028,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="32.6" />
+                            <ScaleTransform ScaleX="1.043" ScaleY="0.959" />
+                            <SkewTransform AngleY="8.376" />
+                            <RotateTransform Angle="28.553" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="DE_ED"
-                    Width="26"
-                    Height="16"
-                    Margin="154,177,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="173,294,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2217,11 +2051,12 @@
                     TextWrapping="Wrap" />
                 <TextBox
                     x:Name="FG_GF"
-                    Width="26"
-                    Height="16"
-                    Margin="488,178,0,0"
+                    Width="41"
+                    Height="30"
+                    Margin="706,296,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2230,11 +2065,12 @@
                     TextWrapping="Wrap" />
                 <TextBox
                     x:Name="BG_GB"
-                    Width="26"
-                    Height="16"
-                    Margin="503,125,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="729,197,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2244,20 +2080,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="44.715" />
+                            <ScaleTransform ScaleX="1.076" ScaleY="0.929" />
+                            <SkewTransform AngleY="9.213" />
+                            <RotateTransform Angle="40.112" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="GJ_JG"
-                    Width="26"
-                    Height="16"
-                    Margin="518,214,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="753,363,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2267,20 +2104,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-52.632" />
+                            <ScaleTransform ScaleX="1.101" ScaleY="0.909" />
+                            <SkewTransform AngleY="-8.894" />
+                            <RotateTransform Angle="-48.091" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="FJ_JF"
-                    Width="26"
-                    Height="16"
-                    Margin="459,227,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="659,388,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2290,20 +2128,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="54.399" />
+                            <ScaleTransform ScaleX="1.106" ScaleY="0.904" />
+                            <SkewTransform AngleY="8.73" />
+                            <RotateTransform Angle="49.921" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="GN_NG"
-                    Width="26"
-                    Height="16"
-                    Margin="566,250,0,0"
+                    Width="41"
+                    Height="30"
+                    Margin="830,431,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2313,20 +2152,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="89.874" />
+                            <ScaleTransform ScaleX="1.175" ScaleY="0.851" />
+                            <SkewTransform AngleY="0.041" />
+                            <RotateTransform Angle="89.852" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="JN_NJ"
-                    Width="26"
-                    Height="16"
-                    Margin="532,276,0,0"
+                    Width="41"
+                    Height="30"
+                    Margin="776,479,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2336,20 +2176,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="49.003" />
+                            <ScaleTransform ScaleX="1.089" ScaleY="0.918" />
+                            <SkewTransform AngleY="9.125" />
+                            <RotateTransform Angle="44.389" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="JM_MJ"
-                    Width="26"
-                    Height="16"
-                    Margin="464,280,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="667,487,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2359,20 +2200,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-46.945" />
+                            <ScaleTransform ScaleX="1.083" ScaleY="0.923" />
+                            <SkewTransform AngleY="-9.192" />
+                            <RotateTransform Angle="-42.324" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="IM_MI"
-                    Width="26"
-                    Height="16"
-                    Margin="400,281,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="565,489,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2382,20 +2224,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="30.643" />
+                            <ScaleTransform ScaleX="1.038" ScaleY="0.963" />
+                            <SkewTransform AngleY="8.096" />
+                            <RotateTransform Angle="26.751" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="IL_LI"
-                    Width="26"
-                    Height="16"
-                    Margin="278,273,0,0"
+                    Width="41"
+                    Height="30"
+                    Margin="371,474,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2405,20 +2248,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-28.686" />
+                            <ScaleTransform ScaleX="1.033" ScaleY="0.968" />
+                            <SkewTransform AngleY="-7.779" />
+                            <RotateTransform Angle="-24.965" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="HI_IH"
-                    Width="26"
-                    Height="16"
-                    Margin="229,244,0,0"
+                    Width="41"
+                    Height="30"
+                    Margin="293,420,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2427,11 +2271,12 @@
                     TextWrapping="Wrap" />
                 <TextBox
                     x:Name="HL_LH"
-                    Width="26"
-                    Height="16"
-                    Margin="197,281,0,0"
+                    Width="41"
+                    Height="30"
+                    Margin="242,489,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2441,20 +2286,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="43.295" />
+                            <ScaleTransform ScaleX="1.072" ScaleY="0.933" />
+                            <SkewTransform AngleY="9.197" />
+                            <RotateTransform Angle="38.718" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="EH_HE"
-                    Width="26"
-                    Height="16"
-                    Margin="185,211,0,0"
+                    Width="41"
+                    Height="30"
+                    Margin="223,358,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2464,20 +2310,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-40.769" />
+                            <ScaleTransform ScaleX="1.065" ScaleY="0.939" />
+                            <SkewTransform AngleY="-9.115" />
+                            <RotateTransform Angle="-36.265" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="DH_HD"
-                    Width="26"
-                    Height="16"
-                    Margin="124,213,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="125,361,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2487,20 +2334,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="48.384" />
+                            <ScaleTransform ScaleX="1.087" ScaleY="0.92" />
+                            <SkewTransform AngleY="9.15" />
+                            <RotateTransform Angle="43.766" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="HK_KH"
-                    Width="26"
-                    Height="16"
-                    Margin="111,277,0,0"
+                    Width="41"
+                    Height="30"
+                    Margin="105,481,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2510,20 +2358,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-40.98" />
+                            <ScaleTransform ScaleX="1.065" ScaleY="0.939" />
+                            <SkewTransform AngleY="-9.124" />
+                            <RotateTransform Angle="-36.469" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="KL_LK"
-                    Width="26"
-                    Height="16"
-                    Margin="151,306,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="168,536,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2532,11 +2381,12 @@
                     TextWrapping="Wrap" />
                 <TextBox
                     x:Name="KP_PK"
-                    Width="26"
-                    Height="16"
-                    Margin="135,369,0,0"
+                    Width="41"
+                    Height="30"
+                    Margin="143,654,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2546,20 +2396,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="33.435" />
+                            <ScaleTransform ScaleX="1.045" ScaleY="0.957" />
+                            <SkewTransform AngleY="8.484" />
+                            <RotateTransform Angle="29.327" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="LP_PL"
-                    Width="26"
-                    Height="16"
-                    Margin="208,360,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="259,637,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2569,20 +2420,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-89.945" />
+                            <ScaleTransform ScaleX="1.175" ScaleY="0.851" />
+                            <SkewTransform AngleY="-0.018" />
+                            <RotateTransform Angle="-89.935" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="LO_OL"
-                    Width="26"
-                    Height="16"
-                    Margin="260,351,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="342,620,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2592,20 +2444,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="23.729" />
+                            <ScaleTransform ScaleX="1.023" ScaleY="0.977" />
+                            <SkewTransform AngleY="6.815" />
+                            <RotateTransform Angle="20.507" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="PQ_QP"
-                    Width="26"
-                    Height="16"
-                    Margin="326,429,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="447,766,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2614,11 +2467,12 @@
                     TextWrapping="Wrap" />
                 <TextBox
                     x:Name="OP_PO"
-                    Width="26"
-                    Height="16"
-                    Margin="291,393,0,0"
+                    Width="41"
+                    Height="30"
+                    Margin="392,699,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2628,20 +2482,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-21.877" />
+                            <ScaleTransform ScaleX="1.02" ScaleY="0.981" />
+                            <SkewTransform AngleY="-6.4" />
+                            <RotateTransform Angle="-18.863" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="MO_OM"
-                    Width="26"
-                    Height="16"
-                    Margin="376,337,0,0"
+                    Width="41"
+                    Height="30"
+                    Margin="527,594,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2651,20 +2506,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-17.432" />
+                            <ScaleTransform ScaleX="1.013" ScaleY="0.988" />
+                            <SkewTransform AngleY="-5.297" />
+                            <RotateTransform Angle="-14.958" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="OQ_QO"
-                    Width="26"
-                    Height="16"
-                    Margin="392,377,0,0"
+                    Width="41"
+                    Height="30"
+                    Margin="553,669,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2674,20 +2530,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="19.942" />
+                            <ScaleTransform ScaleX="1.016" ScaleY="0.984" />
+                            <SkewTransform AngleY="5.938" />
+                            <RotateTransform Angle="17.156" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="MQ_QM"
-                    Width="26"
-                    Height="16"
-                    Margin="459,363,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="659,642,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2697,20 +2554,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="88.462" />
+                            <ScaleTransform ScaleX="1.175" ScaleY="0.851" />
+                            <SkewTransform AngleY="0.499" />
+                            <RotateTransform Angle="88.193" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="QN_NQ"
-                    Width="26"
-                    Height="16"
-                    Margin="513,373,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="745,661,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2720,20 +2578,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-42.152" />
+                            <ScaleTransform ScaleX="1.069" ScaleY="0.936" />
+                            <SkewTransform AngleY="-9.169" />
+                            <RotateTransform Angle="-37.604" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="MN_NM"
-                    Width="26"
-                    Height="16"
-                    Margin="501,307,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="726,538,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2742,11 +2601,12 @@
                     TextWrapping="Wrap" />
                 <TextBox
                     x:Name="IO_OI"
-                    Width="26"
-                    Height="16"
-                    Margin="341,291,0,0"
+                    Width="42"
+                    Height="30"
+                    Margin="471,508,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2756,20 +2616,21 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="89.23" />
+                            <ScaleTransform ScaleX="1.175" ScaleY="0.851" />
+                            <SkewTransform AngleY="0.25" />
+                            <RotateTransform Angle="89.095" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
                 <TextBox
                     x:Name="LM_ML"
-                    Width="26"
-                    Height="16"
-                    Margin="291,308,0,0"
+                    Width="41"
+                    Height="30"
+                    Margin="392,539,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2778,11 +2639,12 @@
                     TextWrapping="Wrap" />
                 <TextBox
                     x:Name="DK_KD"
-                    Width="26"
-                    Height="16"
-                    Margin="74,247,0,0"
+                    Width="41"
+                    Height="30"
+                    Margin="46,425,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    d:IsHidden="True"
                     Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
@@ -2792,13 +2654,361 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-89.551" />
+                            <ScaleTransform ScaleX="1.175" ScaleY="0.851" />
+                            <SkewTransform AngleY="-0.146" />
+                            <RotateTransform Angle="-89.472" />
                             <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
+                <Ellipse
+                    x:Name="A"
+                    Width="65"
+                    Height="65"
+                    Margin="231,68,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Fill="Red"
+                    Stroke="Black" />
+                <Ellipse
+                    x:Name="B"
+                    Width="65"
+                    Height="65"
+                    Margin="625,66,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Fill="#FFAE8989"
+                    Stroke="Black" />
+                <Ellipse
+                    x:Name="C"
+                    Width="66"
+                    Height="65"
+                    Margin="0,202,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Fill="#FF2F2F6E"
+                    Stroke="Black" />
+                <Ellipse
+                    x:Name="D"
+                    Width="65"
+                    Height="64"
+                    Margin="28,292,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Fill="#FF2D2DEE"
+                    Stroke="Black" />
+                <Ellipse
+                    x:Name="E"
+                    Width="64"
+                    Height="66"
+                    Margin="229,296,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Fill="#FFBDAD06"
+                    Stroke="Black" />
+                <Ellipse
+                    x:Name="F"
+                    Width="66"
+                    Height="65"
+                    Margin="625,296,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Fill="#FF915E22"
+                    Stroke="Black" />
+                <Ellipse
+                    x:Name="G"
+                    Width="65"
+                    Height="65"
+                    Margin="836,304,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Fill="#FF9C9CC7"
+                    Stroke="Black" />
+                <Ellipse
+                    x:Name="H"
+                    Width="64"
+                    Height="66"
+                    Margin="136,432,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Fill="#FF878797"
+                    Stroke="Black" />
+                <Ellipse
+                    x:Name="I"
+                    Width="64"
+                    Height="65"
+                    Margin="433,432,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Fill="#FF88FFF5"
+                    Stroke="Black" />
+                <Ellipse
+                    x:Name="J"
+                    Width="66"
+                    Height="66"
+                    Margin="736,435,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Fill="#FFC5C5C5"
+                    Stroke="Black" />
+                <Ellipse
+                    x:Name="K"
+                    Width="65"
+                    Height="64"
+                    Margin="21,562,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Fill="#FFFF00D1"
+                    Stroke="Black" />
+                <Ellipse
+                    x:Name="L"
+                    Width="66"
+                    Height="64"
+                    Margin="228,566,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Fill="#FF3ABFE6"
+                    Stroke="Black" />
+                <Ellipse
+                    x:Name="M"
+                    Width="65"
+                    Height="66"
+                    Margin="627,573,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Fill="#FFDBF00A"
+                    Stroke="Black" />
+                <Ellipse
+                    x:Name="N"
+                    Width="65"
+                    Height="65"
+                    Margin="831,574,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Fill="#FFB77DE0"
+                    Stroke="Black" />
+                <Ellipse
+                    x:Name="O"
+                    Width="64"
+                    Height="65"
+                    Margin="0,671,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Fill="#FFE08B8B"
+                    Stroke="Black" />
+                <Ellipse
+                    x:Name="P"
+                    Width="65"
+                    Height="65"
+                    Margin="227,804,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Fill="#FFB300C5"
+                    Stroke="Black" />
+                <Ellipse
+                    x:Name="Q"
+                    Width="65"
+                    Height="64"
+                    Margin="627,810,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Fill="#FFD49B48"
+                    Stroke="Black" />
+                <Label
+                    x:Name="lbl_A"
+                    Margin="252,84,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    d:IsHidden="True"
+                    Content="A"
+                    FontSize="16" />
+                <Label
+                    x:Name="lbl_B"
+                    Margin="648,80,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    d:IsHidden="True"
+                    Content="B"
+                    FontSize="16" />
+                <Label
+                    x:Name="lbl_C"
+                    Width="39"
+                    Height="60"
+                    Margin="458,208,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Content="C"
+                    FontSize="16"
+                    Foreground="White" />
+                <Label
+                    x:Name="lbl_D"
+                    Width="40"
+                    Height="64"
+                    Margin="46,326,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Content="D"
+                    FontSize="16"
+                    Foreground="#FFF5F3F3" />
+                <Label
+                    x:Name="lbl_E"
+                    Width="36"
+                    Height="60"
+                    Margin="293,307,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Content="E"
+                    FontSize="16" />
+                <Label
+                    x:Name="lbl_F"
+                    Width="38"
+                    Height="60"
+                    Margin="650,310,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Content="F"
+                    FontSize="16"
+                    Foreground="White" />
+                <Label
+                    x:Name="lbl_G"
+                    Width="39"
+                    Height="60"
+                    Margin="857,315,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Content="G"
+                    FontSize="16"
+                    Foreground="White" />
+                <Label
+                    x:Name="lbl_H"
+                    Width="38"
+                    Height="63"
+                    Margin="152,443,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Content="H"
+                    FontSize="16"
+                    Foreground="White" />
+                <Label
+                    x:Name="lbl_I"
+                    Width="42"
+                    Height="64"
+                    Margin="456,448,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Background="{x:Null}"
+                    Content="I"
+                    FontSize="16"
+                    Foreground="#FF040303" />
+                <Label
+                    x:Name="lbl_J"
+                    Width="39"
+                    Height="63"
+                    Margin="729,804,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Content="J"
+                    FontSize="16" />
+                <Label
+                    x:Name="lbl_N"
+                    Width="39"
+                    Height="64"
+                    Margin="857,589,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Content="N"
+                    FontSize="16"
+                    Foreground="White" />
+                <Label
+                    x:Name="lbl_M"
+                    Width="41"
+                    Height="60"
+                    Margin="648,587,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Content="M"
+                    FontSize="16" />
+                <Label
+                    x:Name="lbl_L"
+                    Width="35"
+                    Height="60"
+                    Margin="293,581,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Content="L"
+                    FontSize="16" />
+                <Label
+                    x:Name="lbl_K"
+                    Width="39"
+                    Height="64"
+                    Margin="41,579,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Content="K"
+                    FontSize="16" />
+                <Label
+                    x:Name="lbl_O"
+                    Width="58"
+                    Height="60"
+                    Margin="447,697,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Content="&quot;O&quot;"
+                    FontSize="14" />
+                <Label
+                    x:Name="lbl_P"
+                    Width="36"
+                    Height="60"
+                    Margin="242,810,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Content="P"
+                    FontSize="16" />
+                <Label
+                    x:Name="lbl_Q"
+                    Width="42"
+                    Height="60"
+                    Margin="646,825,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    d:IsHidden="True"
+                    Content="Q"
+                    FontSize="16" />
             </Grid>
 
         </Border>
