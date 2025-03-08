@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dijkstra.CustomControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,10 +50,22 @@ namespace Dijkstra
         {
             foreach (TextBox item in GUIGrid.Children.OfType<TextBox>())
             {
-                PanelStackPanel.Children.Add(new TextBox()
+                string[] name = item.Name.Split("_");
+                PanelStackPanel.Children.Add(new RoundedTextBox()
                 {
                     Name = $"{item.Name}_Panel",
-                    Margin = new Thickness(2,2,2,2)
+                    Margin = new Thickness(5),
+                    Hint = $"{name[0]} To {name[1]} Viceversa",
+                    CornerRadius = new CornerRadius(5),
+                    BorderThickness = new Thickness(1),
+                    BorderBrush = new SolidColorBrush(Colors.Black),
+                    TextBoxsTextAlignment = TextAlignment.Center,
+                    TextBlocksTextAlignment  = TextAlignment.Center,
+                    IsNumeric = true,
+                    MaxLines = 1,
+                    TextMaxLenght = 3,
+                    MinValue = 1,
+
                 });
             }
 
