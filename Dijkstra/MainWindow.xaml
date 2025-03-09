@@ -7,8 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Name="TSP"
     Title="TSP"
-    Width="1200"
-    Height="970"
+    Width="1220"
+    Height="995"
     Loaded="Load"
     ResizeMode="NoResize"
     mc:Ignorable="d">
@@ -39,7 +39,7 @@
                 VerticalAlignment="Top"
                 Content="Destination Point" />
             <ComboBox
-                x:Name="Inception_Point_Copy"
+                x:Name="Destination_Point"
                 Width="107"
                 Height="21"
                 Margin="115,41,0,0"
@@ -54,24 +54,24 @@
                 VerticalAlignment="Top" />
             <Button
                 x:Name="btn_calc"
-                Width="154"
+                Width="80"
                 Height="41"
                 Margin="32,74,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Click="btn_calc_Click"
+                Click="OnCalculateButtonClick"
                 Content="Calculate"
-                IsEnabled="False"
-                RenderTransformOrigin="0.5,0.5">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="1" ScaleY="1" />
-                        <SkewTransform AngleX="0" AngleY="0" />
-                        <RotateTransform Angle="0" />
-                        <TranslateTransform />
-                    </TransformGroup>
-                </Button.RenderTransform>
-            </Button>
+                IsEnabled="False" />
+
+            <Button
+                x:Name="btn_fakeData"
+                Width="80"
+                Height="41"
+                Margin="124,74,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="OnFakeDataButtonClick"
+                Content="Fake Data" />
 
             <ScrollViewer
                 x:Name="PanelScrollViewer"
@@ -96,7 +96,7 @@
                     Height="27"
                     Margin="5"
                     HorizontalAlignment="Center"
-                    Click="btn_Lecturer_Click"
+                    Click="OnLecturerButtonClick"
                     Content="Lecturer" />
                 <Button
                     x:Name="btn_Creators"
@@ -105,7 +105,7 @@
                     Height="27"
                     Margin="5"
                     HorizontalAlignment="Center"
-                    Click="btn_Creators_Click"
+                    Click="OnCreatorsButtonClick"
                     Content="Creators" />
                 <Button
                     x:Name="btn_Course"
@@ -114,7 +114,7 @@
                     Height="27"
                     Margin="5"
                     HorizontalAlignment="Center"
-                    Click="btn_Course_Click"
+                    Click="OnCourseButtonClick"
                     Content="Course" />
             </StackPanel>
 
@@ -406,7 +406,7 @@
                 </Label>
                 <Label
                     x:Name="lbl_gn"
-                    Margin="868,435,-2,0"
+                    Margin="870,435,-4,0"
                     VerticalAlignment="Top"
                     Content="GN&lt;---&gt;NG"
                     FontSize="9"
@@ -507,7 +507,7 @@
                 </Label>
                 <Label
                     x:Name="lbl_jn"
-                    Margin="815,488,0,0"
+                    Margin="746,536,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Content="JN&lt;---&gt;NJ"
@@ -813,7 +813,7 @@
                     TabIndex="3">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="-90" />
+                            <RotateTransform Angle="90" />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
@@ -1138,7 +1138,7 @@
                     x:Name="GN_NG"
                     Width="50"
                     Height="30"
-                    Margin="849,432,0,0"
+                    Margin="843,432,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
@@ -1152,7 +1152,7 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="89.852" />
+                            <RotateTransform Angle="90" />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
@@ -1160,7 +1160,7 @@
                     x:Name="JN_NJ"
                     Width="50"
                     Height="30"
-                    Margin="797,497,0,0"
+                    Margin="769,516,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
@@ -1669,7 +1669,7 @@
                     TextWrapping="Wrap">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="-90" />
+                            <RotateTransform Angle="90" />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
@@ -2017,11 +2017,11 @@
                 <Line
                     x:Name="khatGN"
                     Height="5"
-                    Margin="698,506,16,421"
+                    Margin="675,525,39,402"
                     RenderTransformOrigin="0.5,0.5"
                     Stroke="#FF9C9CC7"
                     X1="0"
-                    X2="320"
+                    X2="350"
                     Y1="2.5"
                     Y2="2.5">
                     <Line.RenderTransform>
@@ -2500,7 +2500,7 @@
                     x:Name="G"
                     Width="65"
                     Height="64"
-                    Margin="824,292,0,0"
+                    Margin="816,292,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Fill="#FF9C9CC7"
@@ -2563,7 +2563,7 @@
                     x:Name="N"
                     Width="65"
                     Height="64"
-                    Margin="824,560,0,0"
+                    Margin="816,560,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Fill="#FFB77DE0"
@@ -2648,7 +2648,7 @@
                     Foreground="White" />
                 <Label
                     x:Name="lbl_G"
-                    Margin="846,308,0,0"
+                    Margin="838,308,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Content="G"
@@ -2680,7 +2680,7 @@
                     FontSize="16" />
                 <Label
                     x:Name="lbl_N"
-                    Margin="846,576,0,0"
+                    Margin="838,576,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Content="N"
