@@ -53,7 +53,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top" />
             <Button
-                x:Name="btn_calc"
+                x:Name="CalculateButton"
                 Width="80"
                 Height="41"
                 Margin="32,74,0,0"
@@ -64,14 +64,14 @@
                 IsEnabled="False" />
 
             <Button
-                x:Name="btn_fakeData"
+                x:Name="RandomDataButton"
                 Width="80"
                 Height="41"
                 Margin="124,74,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="OnFakeDataButtonClick"
-                Content="Fake Data" />
+                Content="Random Data" />
 
             <ScrollViewer
                 x:Name="PanelScrollViewer"
@@ -121,8 +121,6 @@
         </Grid>
 
 
-
-
         <Border
             x:Name="GUIBorder"
             Grid.Column="1"
@@ -136,68 +134,6 @@
                 x:Name="GUIGrid"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch">
-                <Label
-                    x:Name="lbl_ab"
-                    Margin="438,48,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="AB&lt;---&gt;BA"
-                    FontSize="9"
-                    FontWeight="Bold" />
-                <Label
-                    x:Name="lbl_ac"
-                    Margin="366,130,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="AC&lt;---&gt;CA"
-                    FontSize="9"
-                    FontWeight="Bold"
-                    RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="37.295" />
-                            <TranslateTransform />
-                        </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
-                    x:Name="lbl_bc"
-                    Margin="479,144,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="CB&lt;---&gt;BC"
-                    FontSize="9"
-                    FontWeight="Bold"
-                    RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-35.716" />
-                            <TranslateTransform />
-                        </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
-                    x:Name="lbl_ad"
-                    Margin="106,164,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="DA&lt;---&gt;AD"
-                    FontSize="9"
-                    FontWeight="Bold"
-                    RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-49.491" />
-                            <TranslateTransform />
-                        </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
                 <Label
                     x:Name="lbl_dk"
                     Margin="-5,446,0,0"
@@ -327,39 +263,6 @@
                     <Label.RenderTransform>
                         <TransformGroup>
                             <RotateTransform Angle="35" />
-                        </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
-                    x:Name="lbl_ce"
-                    Margin="316,226,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="EC&lt;---&gt;CE"
-                    FontSize="9"
-                    FontWeight="Bold"
-                    RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-25.447" />
-                            <TranslateTransform />
-                        </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
-                    x:Name="lbl_cf"
-                    Margin="550,229,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="CF&lt;---&gt;FC"
-                    FontSize="9"
-                    FontWeight="Bold"
-                    RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
-                        <TransformGroup>
-                            <RotateTransform Angle="26" />
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
@@ -742,214 +645,449 @@
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
-                <Label
-                    x:Name="bf_fb"
-                    Margin="590,212,0,0"
+
+
+                <cc:RoundedTextBox
+                    x:Name="AB"
+                    Width="50"
+                    Height="20"
+                    Margin="301,80,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Content="FB&lt;---&gt;BF"
-                    FontSize="9"
-                    FontWeight="Bold"
-                    RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    Foreground="Red"
+                    Hint="A --&gt; B"
+                    HintBrush="Red"
+                    IsTabStop="False"
+                    MaxLines="1"
+                    MaxValue="999"
+                    MinValue="1"
+                    TextBlocksTextAlignment="Center"
+                    TextBoxsTextAlignment="Center"
+                    TextMaxLenght="3" />
+                <cc:RoundedTextBox
+                    x:Name="AC"
+                    Width="50"
+                    Height="20"
+                    Margin="303,118,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    Foreground="Red"
+                    Hint="A --&gt; C"
+                    HintBrush="Red"
+                    IsTabStop="False"
+                    MaxLines="1"
+                    MaxValue="999"
+                    MinValue="1"
+                    RenderTransformOrigin="0.5,0.5"
+                    TextBlocksTextAlignment="Center"
+                    TextBoxsTextAlignment="Center"
+                    TextMaxLenght="3">
+                    <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="-90" />
+                            <RotateTransform Angle="34" />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <Label
-                    x:Name="ae_ea"
-                    Margin="190,208,0,0"
+                    </cc:RoundedTextBox.RenderTransform>
+                </cc:RoundedTextBox>
+                <cc:RoundedTextBox
+                    x:Name="AD"
+                    Width="50"
+                    Height="20"
+                    Margin="188,124,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Content="AE&lt;---&gt;EA"
-                    FontSize="9"
-                    FontWeight="Bold"
-                    RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    Foreground="Red"
+                    Hint="D &lt;-- A"
+                    HintBrush="Red"
+                    MaxLines="1"
+                    MaxValue="999"
+                    MinValue="1"
+                    RenderTransformOrigin="0.5,0.5"
+                    TextBlocksTextAlignment="Center"
+                    TextBoxsTextAlignment="Center"
+                    TextMaxLenght="3">
+                    <cc:RoundedTextBox.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="-49" />
+                        </TransformGroup>
+                    </cc:RoundedTextBox.RenderTransform>
+                </cc:RoundedTextBox>
+                <cc:RoundedTextBox
+                    x:Name="AE"
+                    Width="50"
+                    Height="20"
+                    Margin="226,150,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    Cursor="Pen"
+                    Foreground="Red"
+                    Hint="A --&gt; E"
+                    HintBrush="Red"
+                    MaxLines="1"
+                    MaxValue="999"
+                    MinValue="1"
+                    RenderTransformOrigin="0.5,0.5"
+                    TextBlocksTextAlignment="Center"
+                    TextBoxsTextAlignment="Center"
+                    TextMaxLenght="3">
+                    <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
                             <RotateTransform Angle="90" />
                         </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-                <TextBox
-                    x:Name="EA_AE"
+                    </cc:RoundedTextBox.RenderTransform>
+                </cc:RoundedTextBox>
+
+
+                <cc:RoundedTextBox
+                    x:Name="BA"
                     Width="50"
-                    Height="30"
-                    Margin="219,204,0,0"
+                    Height="20"
+                    Margin="570,80,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
-                    Cursor="Pen"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    Foreground="#FFAE8989"
+                    Hint="A &lt;-- B"
+                    HintBrush="#FFAE8989"
                     IsTabStop="False"
                     MaxLines="1"
+                    MaxValue="999"
+                    MinValue="1"
+                    TextBlocksTextAlignment="Center"
+                    TextBoxsTextAlignment="Center"
+                    TextMaxLenght="3" />
+                <cc:RoundedTextBox
+                    x:Name="BC"
+                    Width="50"
+                    Height="20"
+                    Margin="577,117,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    Cursor="Pen"
+                    Foreground="#FFAE8989"
+                    Hint="C &lt;-- B"
+                    HintBrush="#FFAE8989"
+                    MaxLines="1"
+                    MaxValue="999"
+                    MinValue="1"
                     RenderTransformOrigin="0.5,0.5"
-                    TabIndex="3"
-                    TextWrapping="Wrap">
-                    <TextBox.RenderTransform>
+                    TextBlocksTextAlignment="Center"
+                    TextBoxsTextAlignment="Center"
+                    TextMaxLenght="3">
+                    <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
+                            <RotateTransform Angle="-36" />
+                        </TransformGroup>
+                    </cc:RoundedTextBox.RenderTransform>
+                </cc:RoundedTextBox>
+                <cc:RoundedTextBox
+                    x:Name="BF"
+                    Width="50"
+                    Height="20"
+                    Margin="622,149,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    Cursor="Pen"
+                    Foreground="#FFAE8989"
+                    Hint="B --&gt; F"
+                    HintBrush="#FFAE8989"
+                    MaxLines="1"
+                    MaxValue="999"
+                    MinValue="1"
+                    RenderTransformOrigin="0.5,0.5"
+                    TextBlocksTextAlignment="Center"
+                    TextBoxsTextAlignment="Center"
+                    TextMaxLenght="3">
+                    <cc:RoundedTextBox.RenderTransform>
+                        <TransformGroup>
                             <RotateTransform Angle="90" />
-                            <TranslateTransform />
                         </TransformGroup>
-                    </TextBox.RenderTransform>
-                </TextBox>
-                <TextBox
-                    x:Name="BF_FB"
+                    </cc:RoundedTextBox.RenderTransform>
+                </cc:RoundedTextBox>
+                <cc:RoundedTextBox
                     Width="50"
-                    Height="30"
-                    Margin="616,209,0,0"
+                    Height="20"
+                    Margin="678,128,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
                     Cursor="Pen"
-                    IsTabStop="False"
-                    MaxLength="3"
+                    Foreground="#FFAE8989"
+                    Hint="B --&gt; G"
+                    HintBrush="#FFAE8989"
                     MaxLines="1"
+                    MaxValue="999"
+                    MinValue="1"
                     RenderTransformOrigin="0.5,0.5"
-                    TabIndex="3">
-                    <TextBox.RenderTransform>
+                    TextBlocksTextAlignment="Center"
+                    TextBoxsTextAlignment="Center"
+                    TextMaxLenght="3">
+                    <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="90" />
+                            <RotateTransform Angle="49" />
                         </TransformGroup>
-                    </TextBox.RenderTransform>
-                </TextBox>
-                <TextBox
-                    x:Name="AB_BA"
+                    </cc:RoundedTextBox.RenderTransform>
+                </cc:RoundedTextBox>
+
+                <cc:RoundedTextBox
+                    x:Name="CA"
                     Width="50"
-                    Height="30"
-                    Margin="447,70,0,0"
+                    Height="20"
+                    Margin="397,181,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
-                    Cursor="Pen"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    Foreground="#FF2D2DEE"
+                    Hint="A &lt;-- C"
+                    HintBrush="#FF2F2F6E"
                     IsTabStop="False"
-                    MaxLength="3"
                     MaxLines="1"
-                    TabIndex="3"
-                    TextWrapping="Wrap" />
-                <TextBox
-                    x:Name="AD_DA"
-                    Width="50"
-                    Height="30"
-                    Margin="132,176,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
-                    Cursor="Pen"
-                    IsTabStop="False"
-                    MaxLength="3"
-                    MaxLines="1"
+                    MaxValue="999"
+                    MinValue="1"
                     RenderTransformOrigin="0.5,0.5"
-                    TabIndex="3"
-                    TextWrapping="Wrap">
-                    <TextBox.RenderTransform>
+                    TextBlocksTextAlignment="Center"
+                    TextBoxsTextAlignment="Center"
+                    TextMaxLenght="3">
+                    <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleX="0.99999999999999989" ScaleY="0.99999999999999989" />
-                            <SkewTransform />
-                            <RotateTransform Angle="-49.104" />
-                            <TranslateTransform />
+                            <RotateTransform Angle="34" />
                         </TransformGroup>
-                    </TextBox.RenderTransform>
-                </TextBox>
-                <TextBox
-                    x:Name="AC_CA"
+                    </cc:RoundedTextBox.RenderTransform>
+                </cc:RoundedTextBox>
+                <cc:RoundedTextBox
+                    x:Name="CB"
                     Width="50"
-                    Height="30"
-                    Margin="352,146,0,0"
+                    Height="20"
+                    Margin="492,178,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
                     Cursor="Pen"
-                    IsTabStop="False"
-                    MaxLength="3"
+                    Foreground="#FF2F2F6E"
+                    Hint="C --&gt; B"
+                    HintBrush="#FF2F2F6E"
                     MaxLines="1"
+                    MaxValue="999"
+                    MinValue="1"
                     RenderTransformOrigin="0.5,0.5"
-                    TabIndex="3"
-                    TextWrapping="Wrap">
-                    <TextBox.RenderTransform>
+                    TextBlocksTextAlignment="Center"
+                    TextBoxsTextAlignment="Center"
+                    TextMaxLenght="3">
+                    <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="36.564" />
+                            <RotateTransform Angle="-36" />
                         </TransformGroup>
-                    </TextBox.RenderTransform>
-                </TextBox>
-                <TextBox
-                    x:Name="BC_CB"
+                    </cc:RoundedTextBox.RenderTransform>
+                </cc:RoundedTextBox>
+                <cc:RoundedTextBox
+                    x:Name="CE"
                     Width="50"
-                    Height="30"
-                    Margin="499,161,0,0"
+                    Height="20"
+                    Margin="387,233,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
                     Cursor="Pen"
-                    IsTabStop="False"
-                    MaxLength="3"
+                    Foreground="#FF2F2F6E"
+                    Hint="E &lt;-- C"
+                    HintBrush="#FF2F2F6E"
                     MaxLines="1"
+                    MaxValue="999"
+                    MinValue="1"
                     RenderTransformOrigin="0.5,0.5"
-                    TabIndex="3"
-                    TextWrapping="Wrap">
-                    <TextBox.RenderTransform>
+                    TextBlocksTextAlignment="Center"
+                    TextBoxsTextAlignment="Center"
+                    TextMaxLenght="3">
+                    <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="-35.649" />
-                            <TranslateTransform />
-                        </TransformGroup>
-                    </TextBox.RenderTransform>
-                </TextBox>
-                <TextBox
-                    x:Name="CE_EC"
-                    Width="50"
-                    Height="30"
-                    Margin="332,246,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
-                    Cursor="Pen"
-                    IsTabStop="False"
-                    MaxLength="3"
-                    MaxLines="1"
-                    RenderTransformOrigin="0.5,0.5"
-                    TabIndex="3">
-                    <TextBox.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleX="0.99999999999999989" ScaleY="0.99999999999999989" />
-                            <SkewTransform />
                             <RotateTransform Angle="-25.299" />
-                            <TranslateTransform />
                         </TransformGroup>
-                    </TextBox.RenderTransform>
-                </TextBox>
-                <TextBox
-                    x:Name="CF_FC"
+                    </cc:RoundedTextBox.RenderTransform>
+                </cc:RoundedTextBox>
+                <cc:RoundedTextBox
+                    x:Name="CF"
                     Width="50"
-                    Height="30"
-                    Margin="542,248,0,0"
+                    Height="20"
+                    Margin="506,241,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
                     Cursor="Pen"
-                    IsTabStop="False"
-                    MaxLength="3"
+                    Foreground="#FF2F2F6E"
+                    Hint="C --&gt; F"
+                    HintBrush="#FF2F2F6E"
                     MaxLines="1"
+                    MaxValue="999"
+                    MinValue="1"
                     RenderTransformOrigin="0.5,0.5"
-                    TabIndex="3"
-                    TextWrapping="Wrap">
-                    <TextBox.RenderTransform>
+                    TextBlocksTextAlignment="Center"
+                    TextBoxsTextAlignment="Center"
+                    TextMaxLenght="3">
+                    <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
                             <RotateTransform Angle="26" />
                         </TransformGroup>
-                    </TextBox.RenderTransform>
-                </TextBox>
+                    </cc:RoundedTextBox.RenderTransform>
+                </cc:RoundedTextBox>
+
+
+
+                <cc:RoundedTextBox
+                    x:Name="DA"
+                    Width="50"
+                    Height="20"
+                    Margin="69,261,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    Foreground="#FF2D2DEE"
+                    Hint="D  --&gt;  A"
+                    HintBrush="#FF2D2DEE"
+                    MaxLines="1"
+                    MaxValue="999"
+                    MinValue="1"
+                    RenderTransformOrigin="0.5,0.5"
+                    TextBlocksTextAlignment="Center"
+                    TextBoxsTextAlignment="Center"
+                    TextMaxLenght="3">
+                    <cc:RoundedTextBox.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="-49" />
+                        </TransformGroup>
+                    </cc:RoundedTextBox.RenderTransform>
+                </cc:RoundedTextBox>
+
+                <cc:RoundedTextBox
+                    x:Name="EA"
+                    Width="50"
+                    Height="20"
+                    Margin="226,254,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    Cursor="Pen"
+                    Foreground="#FFBDAD06"
+                    Hint="A &lt;-- E"
+                    HintBrush="#FFBDAD06"
+                    MaxLines="1"
+                    MaxValue="999"
+                    MinValue="1"
+                    RenderTransformOrigin="0.5,0.5"
+                    TextBlocksTextAlignment="Center"
+                    TextBoxsTextAlignment="Center"
+                    TextMaxLenght="3">
+                    <cc:RoundedTextBox.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="90" />
+                        </TransformGroup>
+                    </cc:RoundedTextBox.RenderTransform>
+                </cc:RoundedTextBox>
+
+                <cc:RoundedTextBox
+                    x:Name="FB"
+                    Width="50"
+                    Height="20"
+                    Margin="622,254,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    Cursor="Pen"
+                    Foreground="#FF915E22"
+                    Hint="B  &lt;--  F"
+                    HintBrush="#FF915E22"
+                    MaxLines="1"
+                    MaxValue="999"
+                    MinValue="1"
+                    RenderTransformOrigin="0.5,0.5"
+                    TextBlocksTextAlignment="Center"
+                    TextBoxsTextAlignment="Center"
+                    TextMaxLenght="3">
+                    <cc:RoundedTextBox.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="90" />
+                        </TransformGroup>
+                    </cc:RoundedTextBox.RenderTransform>
+                </cc:RoundedTextBox>
+
+
+
+
+                <cc:RoundedTextBox
+                    x:Name="EC"
+                    Width="50"
+                    Height="20"
+                    Margin="287,280,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    Cursor="Pen"
+                    Foreground="#FFBDAD06"
+                    Hint="E --&gt; C"
+                    HintBrush="#FFBDAD06"
+                    MaxLines="1"
+                    MaxValue="999"
+                    MinValue="1"
+                    RenderTransformOrigin="0.5,0.5"
+                    TextBlocksTextAlignment="Center"
+                    TextBoxsTextAlignment="Center"
+                    TextMaxLenght="3">
+                    <cc:RoundedTextBox.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="-25.299" />
+                        </TransformGroup>
+                    </cc:RoundedTextBox.RenderTransform>
+                </cc:RoundedTextBox>
+
+                <cc:RoundedTextBox
+                    x:Name="FC"
+                    Width="50"
+                    Height="20"
+                    Margin="583,279,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    Cursor="Pen"
+                    Foreground="#FF915E22"
+                    Hint="C &lt;-- F"
+                    HintBrush="#FF915E22"
+                    MaxLines="1"
+                    MaxValue="999"
+                    MinValue="1"
+                    RenderTransformOrigin="0.5,0.5"
+                    TextBlocksTextAlignment="Center"
+                    TextBoxsTextAlignment="Center"
+                    TextMaxLenght="3">
+                    <cc:RoundedTextBox.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="26" />
+                        </TransformGroup>
+                    </cc:RoundedTextBox.RenderTransform>
+                </cc:RoundedTextBox>
+
+
+
                 <TextBox
                     x:Name="EF_FE"
                     Width="50"
@@ -959,7 +1097,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -974,7 +1111,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -999,7 +1135,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1021,7 +1156,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1043,7 +1177,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1058,37 +1191,42 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
                     TabIndex="3"
                     TextWrapping="Wrap" />
-                <TextBox
-                    x:Name="BG_GB"
+
+                <cc:RoundedTextBox
                     Width="50"
-                    Height="30"
-                    Margin="737,178,0,0"
+                    Height="20"
+                    Margin="795,262,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
                     Cursor="Pen"
-                    IsTabStop="False"
-                    MaxLength="3"
+                    Foreground="#FF9C9CC7"
+                    Hint="B &lt;-- G"
+                    HintBrush="#FF9C9CC7"
                     MaxLines="1"
+                    MaxValue="999"
+                    MinValue="1"
                     RenderTransformOrigin="0.5,0.5"
-                    TabIndex="3"
-                    TextWrapping="Wrap">
-                    <TextBox.RenderTransform>
+                    TextBlocksTextAlignment="Center"
+                    TextBoxsTextAlignment="Center"
+                    TextMaxLenght="3">
+                    <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="48.532" />
-                            <TranslateTransform />
+                            <RotateTransform Angle="49" />
                         </TransformGroup>
-                    </TextBox.RenderTransform>
-                </TextBox>
+                    </cc:RoundedTextBox.RenderTransform>
+                </cc:RoundedTextBox>
+
+
+
+
+
                 <TextBox
                     x:Name="GJ_JG"
                     Width="50"
@@ -1098,7 +1236,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1120,7 +1257,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1143,7 +1279,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1165,7 +1300,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1187,7 +1321,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1212,7 +1345,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1234,7 +1366,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1256,7 +1387,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1271,7 +1401,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1293,7 +1422,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1315,7 +1443,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1337,7 +1464,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1359,7 +1485,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1374,7 +1499,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1399,7 +1523,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1421,7 +1544,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1446,7 +1568,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1468,7 +1589,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1493,7 +1613,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1518,7 +1637,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1543,7 +1661,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1566,7 +1683,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1591,7 +1707,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1607,7 +1722,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1623,7 +1737,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1645,7 +1758,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1660,7 +1772,6 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                    Cursor="Pen"
                     IsTabStop="False"
                     MaxLength="3"
                     MaxLines="1"
@@ -1678,14 +1789,20 @@
                 <Line
                     x:Name="khatAB"
                     Height="5"
-                    Margin="0,100,0,0"
-                    HorizontalAlignment="Center"
+                    Margin="286,100,0,0"
+                    HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Stroke="Red"
                     X1="0"
                     X2="350"
                     Y1="2.5"
-                    Y2="2.5" />
+                    Y2="2.5">
+                    <Line.Stroke>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0.6,1">
+                            <GradientStop Offset="0.5" Color="Red" />
+                            <GradientStop Offset="1" Color="#FFAE8989" />
+                        </LinearGradientBrush>
+                    </Line.Stroke>
+                </Line>
                 <Line
                     x:Name="khatAD"
                     Height="5"
@@ -1693,7 +1810,6 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
-                    Stroke="Red"
                     X1="0"
                     X2="240"
                     Y1="2.5"
@@ -1706,17 +1822,22 @@
                             <TranslateTransform />
                         </TransformGroup>
                     </Line.RenderTransform>
+                    <Line.Stroke>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0.6,1">
+                            <GradientStop Offset="0.5" Color="#FF2D2DEE" />
+                            <GradientStop Offset="1" Color="Red" />
+                        </LinearGradientBrush>
+                    </Line.Stroke>
                 </Line>
                 <Line
                     x:Name="khatAD_Copy"
                     Height="5"
-                    Margin="183,211,0,0"
+                    Margin="173,211,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
-                    Stroke="Red"
                     X1="0"
-                    X2="160"
+                    X2="180"
                     Y1="2.5"
                     Y2="2.5">
                     <Line.RenderTransform>
@@ -1724,27 +1845,39 @@
                             <RotateTransform Angle="90" />
                         </TransformGroup>
                     </Line.RenderTransform>
+                    <Line.Stroke>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0.6,1">
+                            <GradientStop Offset="0.5" Color="Red" />
+                            <GradientStop Offset="1" Color="#FFBDAD06" />
+                        </LinearGradientBrush>
+                    </Line.Stroke>
                 </Line>
                 <Line
                     x:Name="khatAC"
                     Height="5"
-                    Margin="272,170,0,0"
+                    Margin="267,167,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
-                    Stroke="Red"
                     X1="0"
-                    X2="176"
+                    X2="200"
                     Y1="2.5"
                     Y2="2.5">
                     <Line.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform />
                             <SkewTransform />
-                            <RotateTransform Angle="35.601" />
+                            <RotateTransform Angle="34" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Line.RenderTransform>
+
+                    <Line.Stroke>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0.6,1">
+                            <GradientStop Offset="0.5" Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2F2F6E" />
+                        </LinearGradientBrush>
+                    </Line.Stroke>
                 </Line>
 
                 <Line
@@ -1754,7 +1887,6 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
-                    Stroke="#FFAE8989"
                     X1="0"
                     X2="200"
                     Y1="2.5"
@@ -1763,10 +1895,16 @@
                         <TransformGroup>
                             <ScaleTransform ScaleX="0.996" ScaleY="1.004" />
                             <SkewTransform AngleX="1.034" />
-                            <RotateTransform Angle="-35.458" />
+                            <RotateTransform Angle="-36" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Line.RenderTransform>
+                    <Line.Stroke>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0.6,1">
+                            <GradientStop Offset="0.5" Color="#FF2F2F6E" />
+                            <GradientStop Offset="1" Color="#FFAE8989" />
+                        </LinearGradientBrush>
+                    </Line.Stroke>
                 </Line>
                 <Line
                     x:Name="khatBG_Copy"
@@ -1775,7 +1913,6 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
-                    Stroke="#FFAE8989"
                     X1="0"
                     X2="180"
                     Y1="2.5"
@@ -1788,43 +1925,60 @@
                             <TranslateTransform />
                         </TransformGroup>
                     </Line.RenderTransform>
+                    <Line.Stroke>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0.6,1">
+                            <GradientStop Offset="0.5" Color="#FFAE8989" />
+                            <GradientStop Offset="1" Color="#FF915E22" />
+                        </LinearGradientBrush>
+                    </Line.Stroke>
                 </Line>
                 <Line
                     x:Name="khatBG"
                     Height="5"
-                    Margin="629,216,0,0"
+                    Margin="624,212,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
-                    Stroke="#FFAE8989"
                     X1="0"
                     X2="260"
                     Y1="2.5"
                     Y2="2.5">
                     <Line.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="-131.217" />
+                            <RotateTransform Angle="49" />
                         </TransformGroup>
                     </Line.RenderTransform>
+                    <Line.Stroke>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0.6,1">
+                            <GradientStop Offset="0.5" Color="#FFAE8989" />
+                            <GradientStop Offset="1" Color="#FF9C9CC7" />
+                        </LinearGradientBrush>
+                    </Line.Stroke>
                 </Line>
 
                 <Line
                     x:Name="khatCE"
                     Height="5"
-                    Margin="274,277,0,0"
+                    Margin="272,275,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
-                    Stroke="#FF2F2F6E"
                     X1="0"
-                    X2="170"
+                    X2="190"
                     Y1="2.5"
                     Y2="2.5">
                     <Line.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="-25.192" />
+                            <RotateTransform Angle="155" />
                         </TransformGroup>
                     </Line.RenderTransform>
+
+                    <Line.Stroke>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0.6,1">
+                            <GradientStop Offset="0.5" Color="#FF2F2F6E" />
+                            <GradientStop Offset="1" Color="#FFBDAD06" />
+                        </LinearGradientBrush>
+                    </Line.Stroke>
                 </Line>
                 <Line
                     x:Name="khatCF"
@@ -1833,11 +1987,16 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
-                    Stroke="#FF2F2F6E"
                     X1="0"
                     X2="160"
                     Y1="2.5"
                     Y2="2.5">
+                    <Line.Stroke>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0.6,1">
+                            <GradientStop Offset="0.5" Color="#FF2F2F6E" />
+                            <GradientStop Offset="1" Color="#FF915E22" />
+                        </LinearGradientBrush>
+                    </Line.Stroke>
                     <Line.RenderTransform>
                         <TransformGroup>
                             <RotateTransform Angle="26" />
