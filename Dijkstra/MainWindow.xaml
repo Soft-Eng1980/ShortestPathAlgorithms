@@ -134,10 +134,7 @@
             BorderBrush="Black"
             BorderThickness="1"
             CornerRadius="1000">
-            <Grid
-                x:Name="GUIGrid"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch">
+            <Grid x:Name="GUIGrid" Margin="0,18,0,-18">
 
                 <!--  A  -->
                 <cc:RoundedTextBox
@@ -246,7 +243,7 @@
                     x:Name="BA"
                     Width="50"
                     Height="18"
-                    Margin="570,80,0,0"
+                    Margin="625,80,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -265,7 +262,7 @@
                     x:Name="BC"
                     Width="50"
                     Height="18"
-                    Margin="585,119,0,0"
+                    Margin="626,116,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -285,7 +282,7 @@
                         <TransformGroup>
                             <ScaleTransform />
                             <SkewTransform />
-                            <RotateTransform Angle="-33" />
+                            <RotateTransform Angle="-28" />
                             <TranslateTransform />
                         </TransformGroup>
                     </cc:RoundedTextBox.RenderTransform>
@@ -294,7 +291,7 @@
                     x:Name="BF"
                     Width="50"
                     Height="18"
-                    Margin="623,149,0,0"
+                    Margin="670,149,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -319,7 +316,7 @@
                 <cc:RoundedTextBox
                     Width="50"
                     Height="18"
-                    Margin="680,127,0,0"
+                    Margin="734,124,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -374,7 +371,7 @@
                     x:Name="CB"
                     Width="50"
                     Height="18"
-                    Margin="496,177,0,0"
+                    Margin="516,175,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -392,7 +389,7 @@
                     TextMaxLenght="3">
                     <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="-33" />
+                            <RotateTransform Angle="-28" />
                         </TransformGroup>
                     </cc:RoundedTextBox.RenderTransform>
                 </cc:RoundedTextBox>
@@ -429,7 +426,7 @@
                     x:Name="CF"
                     Width="50"
                     Height="18"
-                    Margin="507,222,0,0"
+                    Margin="527,232,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -447,7 +444,7 @@
                     TextMaxLenght="3">
                     <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="33" />
+                            <RotateTransform Angle="28" />
                         </TransformGroup>
                     </cc:RoundedTextBox.RenderTransform>
                 </cc:RoundedTextBox>
@@ -668,7 +665,7 @@
                     TextMaxLenght="3">
                     <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="29" />
+                            <RotateTransform Angle="30" />
                         </TransformGroup>
                     </cc:RoundedTextBox.RenderTransform>
                 </cc:RoundedTextBox>
@@ -723,7 +720,7 @@
                     x:Name="FB"
                     Width="50"
                     Height="18"
-                    Margin="623,253,0,0"
+                    Margin="670,253,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -749,7 +746,7 @@
                     x:Name="FC"
                     Width="50"
                     Height="18"
-                    Margin="592,277,0,0"
+                    Margin="632,288,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -767,7 +764,7 @@
                     TextMaxLenght="3">
                     <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="33" />
+                            <RotateTransform Angle="28" />
                         </TransformGroup>
                     </cc:RoundedTextBox.RenderTransform>
                 </cc:RoundedTextBox>
@@ -775,7 +772,7 @@
                     x:Name="FG"
                     Width="50"
                     Height="18"
-                    Margin="692,312,0,0"
+                    Margin="741,312,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -794,7 +791,7 @@
                     x:Name="FE"
                     Width="50"
                     Height="18"
-                    Margin="573,311,0,0"
+                    Margin="605,311,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -813,7 +810,7 @@
                     x:Name="FI"
                     Width="50"
                     Height="18"
-                    Margin="578,353,0,0"
+                    Margin="620,347,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -830,7 +827,7 @@
                     TextMaxLenght="3">
                     <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="-35" />
+                            <RotateTransform Angle="-32" />
                         </TransformGroup>
                     </cc:RoundedTextBox.RenderTransform>
                 </cc:RoundedTextBox>
@@ -838,7 +835,7 @@
                     x:Name="FJ"
                     Width="50"
                     Height="18"
-                    Margin="682,357,0,0"
+                    Margin="731,357,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -867,7 +864,7 @@
                     x:Name="GB"
                     Width="50"
                     Height="18"
-                    Margin="804,270,0,0"
+                    Margin="858,267,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -893,7 +890,7 @@
                     x:Name="GF"
                     Width="50"
                     Height="18"
-                    Margin="763,312,0,0"
+                    Margin="832,312,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -912,7 +909,7 @@
                     x:Name="GJ"
                     Width="50"
                     Height="18"
-                    Margin="793,355,0,0"
+                    Margin="853,369,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -929,7 +926,7 @@
                     TextMaxLenght="3">
                     <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="-60" />
+                            <RotateTransform Angle="-57" />
                         </TransformGroup>
                     </cc:RoundedTextBox.RenderTransform>
                 </cc:RoundedTextBox>
@@ -937,7 +934,7 @@
                     x:Name="GN"
                     Width="50"
                     Height="18"
-                    Margin="855,383,0,0"
+                    Margin="903,383,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1135,7 +1132,7 @@
                     TextMaxLenght="3">
                     <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="29" />
+                            <RotateTransform Angle="30" />
                         </TransformGroup>
                     </cc:RoundedTextBox.RenderTransform>
                 </cc:RoundedTextBox>
@@ -1143,7 +1140,7 @@
                     x:Name="IF"
                     Width="50"
                     Height="18"
-                    Margin="498,407,0,0"
+                    Margin="512,413,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1160,7 +1157,7 @@
                     TextMaxLenght="3">
                     <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="-35" />
+                            <RotateTransform Angle="-32" />
                         </TransformGroup>
                     </cc:RoundedTextBox.RenderTransform>
                 </cc:RoundedTextBox>
@@ -1243,7 +1240,7 @@
                     x:Name="IM"
                     Width="50"
                     Height="18"
-                    Margin="519,485,0,0"
+                    Margin="521,480,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1260,7 +1257,7 @@
                     TextMaxLenght="3">
                     <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="40" />
+                            <RotateTransform Angle="35" />
                         </TransformGroup>
                     </cc:RoundedTextBox.RenderTransform>
                 </cc:RoundedTextBox>
@@ -1296,7 +1293,7 @@
                     x:Name="JF"
                     Width="50"
                     Height="18"
-                    Margin="718,400,0,0"
+                    Margin="767,400,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1322,7 +1319,7 @@
                     x:Name="JG"
                     Width="50"
                     Height="18"
-                    Margin="767,400,0,0"
+                    Margin="827,409,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1339,7 +1336,7 @@
                     TextMaxLenght="3">
                     <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="-60" />
+                            <RotateTransform Angle="-57" />
                         </TransformGroup>
                     </cc:RoundedTextBox.RenderTransform>
                 </cc:RoundedTextBox>
@@ -1347,7 +1344,7 @@
                     x:Name="JI"
                     Width="50"
                     Height="18"
-                    Margin="681,444,0,0"
+                    Margin="730,444,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1372,7 +1369,7 @@
                     x:Name="JM"
                     Width="50"
                     Height="18"
-                    Margin="700,496,0,0"
+                    Margin="753,500,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1397,7 +1394,7 @@
                     x:Name="JN"
                     Width="50"
                     Height="18"
-                    Margin="769,510,0,0"
+                    Margin="835,497,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1650,7 +1647,7 @@
                     x:Name="MI"
                     Width="50"
                     Height="18"
-                    Margin="598,549,0,0"
+                    Margin="639,559,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1667,7 +1664,7 @@
                     TextMaxLenght="3">
                     <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="40" />
+                            <RotateTransform Angle="35" />
                         </TransformGroup>
                     </cc:RoundedTextBox.RenderTransform>
                 </cc:RoundedTextBox>
@@ -1675,7 +1672,7 @@
                     x:Name="MJ"
                     Width="50"
                     Height="18"
-                    Margin="659,542,0,0"
+                    Margin="712,546,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1700,7 +1697,7 @@
                     x:Name="ML"
                     Width="50"
                     Height="18"
-                    Margin="574,586,0,0"
+                    Margin="612,586,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1719,7 +1716,7 @@
                     x:Name="MN"
                     Width="50"
                     Height="18"
-                    Margin="692,586,0,0"
+                    Margin="741,586,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1738,7 +1735,7 @@
                     x:Name="MO"
                     Width="50"
                     Height="18"
-                    Margin="581,625,0,0"
+                    Margin="618,618,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1755,7 +1752,7 @@
                     TextMaxLenght="3">
                     <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="-28" />
+                            <RotateTransform Angle="-26" />
                         </TransformGroup>
                     </cc:RoundedTextBox.RenderTransform>
                 </cc:RoundedTextBox>
@@ -1763,7 +1760,7 @@
                     x:Name="MQ"
                     Width="50"
                     Height="18"
-                    Margin="620,657,0,0"
+                    Margin="669,657,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1791,7 +1788,7 @@
                     x:Name="NG"
                     Width="50"
                     Height="18"
-                    Margin="855,538,0,0"
+                    Margin="903,538,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1816,7 +1813,7 @@
                     x:Name="NJ"
                     Width="50"
                     Height="18"
-                    Margin="802,557,0,0"
+                    Margin="865,540,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1841,7 +1838,7 @@
                     x:Name="NM"
                     Width="50"
                     Height="18"
-                    Margin="779,587,0,0"
+                    Margin="828,587,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1860,7 +1857,7 @@
                     x:Name="NQ"
                     Width="50"
                     Height="18"
-                    Margin="791,628,0,0"
+                    Margin="837,626,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1938,7 +1935,7 @@
                     x:Name="OM"
                     Width="50"
                     Height="18"
-                    Margin="515,660,0,0"
+                    Margin="519,665,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1955,7 +1952,7 @@
                     TextMaxLenght="3">
                     <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="-28" />
+                            <RotateTransform Angle="-26" />
                         </TransformGroup>
                     </cc:RoundedTextBox.RenderTransform>
                 </cc:RoundedTextBox>
@@ -1988,7 +1985,7 @@
                     x:Name="OQ"
                     Width="50"
                     Height="18"
-                    Margin="522,720,0,0"
+                    Margin="527,708,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -2005,7 +2002,7 @@
                     TextMaxLenght="3">
                     <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="32" />
+                            <RotateTransform Angle="26" />
                         </TransformGroup>
                     </cc:RoundedTextBox.RenderTransform>
                 </cc:RoundedTextBox>
@@ -2113,7 +2110,7 @@
                     x:Name="QM"
                     Width="50"
                     Height="18"
-                    Margin="620,745,0,0"
+                    Margin="669,745,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -2138,7 +2135,7 @@
                     x:Name="QO"
                     Width="50"
                     Height="18"
-                    Margin="585,759,0,0"
+                    Margin="635,761,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -2155,7 +2152,7 @@
                     TextMaxLenght="3">
                     <cc:RoundedTextBox.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="32" />
+                            <RotateTransform Angle="26" />
                         </TransformGroup>
                     </cc:RoundedTextBox.RenderTransform>
                 </cc:RoundedTextBox>
@@ -2163,7 +2160,7 @@
                     x:Name="QN"
                     Width="50"
                     Height="18"
-                    Margin="665,754,0,0"
+                    Margin="711,752,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -2188,7 +2185,7 @@
                     x:Name="QP"
                     Width="50"
                     Height="18"
-                    Margin="570,791,0,0"
+                    Margin="620,791,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -2252,7 +2249,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     X1="0"
-                    X2="350"
+                    X2="400"
                     Y1="2.5"
                     Y2="2.5">
                     <Line.Stroke>
@@ -2342,19 +2339,17 @@
                 <Line
                     x:Name="khatBC"
                     Height="5"
-                    Margin="482,164,0,0"
+                    Margin="498,162,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
                     X1="0"
-                    X2="180"
+                    X2="210"
                     Y1="2.5"
                     Y2="2.5">
                     <Line.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleX="0.996" ScaleY="1.004" />
-                            <SkewTransform AngleX="1.034" />
-                            <RotateTransform Angle="147" />
+                            <RotateTransform Angle="152" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Line.RenderTransform>
@@ -2368,7 +2363,7 @@
                 <Line
                     x:Name="khatBG_Copy"
                     Height="4"
-                    Margin="569,211,0,0"
+                    Margin="618,211,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
@@ -2394,7 +2389,7 @@
                 <Line
                     x:Name="khatBG"
                     Height="5"
-                    Margin="620,216,0,0"
+                    Margin="675,214,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
@@ -2445,12 +2440,12 @@
                 <Line
                     x:Name="khatCF"
                     Height="5"
-                    Margin="480,266,0,0"
+                    Margin="495,277,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
                     X1="0"
-                    X2="170"
+                    X2="210"
                     Y1="2.5"
                     Y2="2.5">
                     <Line.Stroke>
@@ -2463,7 +2458,7 @@
                         <TransformGroup>
                             <ScaleTransform />
                             <SkewTransform />
-                            <RotateTransform Angle="32.9" />
+                            <RotateTransform Angle="28" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Line.RenderTransform>
@@ -2575,7 +2570,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     X1="0"
-                    X2="350"
+                    X2="400"
                     Y1="2.5"
                     Y2="2.5">
 
@@ -2632,7 +2627,7 @@
                         <TransformGroup>
                             <ScaleTransform ScaleX="0.99999999999999989" ScaleY="0.99999999999999989" />
                             <SkewTransform />
-                            <RotateTransform Angle="29" />
+                            <RotateTransform Angle="30" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Line.RenderTransform>
@@ -2648,17 +2643,17 @@
                 <Line
                     x:Name="khatFI"
                     Height="5"
-                    Margin="475,398,0,0"
+                    Margin="494,395,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
                     X1="0"
-                    X2="190"
+                    X2="210"
                     Y1="2.5"
                     Y2="2.5">
                     <Line.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="145" />
+                            <RotateTransform Angle="148" />
                         </TransformGroup>
                     </Line.RenderTransform>
 
@@ -2675,7 +2670,7 @@
                 <Line
                     x:Name="khatFG"
                     Height="4"
-                    Margin="677,332,0,0"
+                    Margin="732,332,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
@@ -2697,7 +2692,7 @@
                 <Line
                     x:Name="khatFJ"
                     Height="5"
-                    Margin="649,392,0,0"
+                    Margin="683,402,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
@@ -2723,7 +2718,7 @@
                 <Line
                     x:Name="khatGN"
                     Height="5"
-                    Margin="739,479,7,0"
+                    Margin="785,479,-39,0"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
                     X1="0"
@@ -2751,17 +2746,20 @@
                 <Line
                     x:Name="khatGJ"
                     Height="5"
-                    Margin="754,394,0,0"
+                    Margin="803,403,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
                     X1="0"
-                    X2="120"
+                    X2="140"
                     Y1="2.5"
                     Y2="2.5">
                     <Line.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="120" />
+                            <ScaleTransform ScaleX="0.99999999999999989" ScaleY="0.99999999999999989" />
+                            <SkewTransform />
+                            <RotateTransform Angle="123" />
+                            <TranslateTransform />
                         </TransformGroup>
                     </Line.RenderTransform>
 
@@ -2882,19 +2880,19 @@
                 <Line
                     x:Name="khatIM"
                     Height="5"
-                    Margin="486,532,0,0"
+                    Margin="486,535,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
                     X1="0"
-                    X2="180"
+                    X2="220"
                     Y1="2.5"
                     Y2="2.5">
                     <Line.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform />
                             <SkewTransform />
-                            <RotateTransform Angle="40" />
+                            <RotateTransform Angle="35" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Line.RenderTransform>
@@ -2938,11 +2936,11 @@
                 <Line
                     x:Name="khatIJ"
                     Height="5"
-                    Margin="482,462,0,0"
+                    Margin="510,462,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     X1="0"
-                    X2="270"
+                    X2="290"
                     Y1="2.5"
                     Y2="2.5">
 
@@ -2958,7 +2956,7 @@
                 <Line
                     x:Name="khatJM"
                     Height="5"
-                    Margin="642,535,0,0"
+                    Margin="698,535,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
@@ -2986,7 +2984,7 @@
                 <Line
                     x:Name="khatJN"
                     Height="5"
-                    Margin="754,532,0,0"
+                    Margin="800,532,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
@@ -3068,7 +3066,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     X1="0"
-                    X2="360"
+                    X2="410"
                     Y1="2.5"
                     Y2="2.5">
 
@@ -3137,19 +3135,19 @@
                 <Line
                     x:Name="khatMO"
                     Height="5"
-                    Margin="498,659,0,0"
+                    Margin="499,658,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
                     X1="0"
-                    X2="160"
+                    X2="200"
                     Y1="2.5"
                     Y2="2.5">
                     <Line.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform />
                             <SkewTransform />
-                            <RotateTransform Angle="152" />
+                            <RotateTransform Angle="154" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Line.RenderTransform>
@@ -3166,7 +3164,7 @@
                 <Line
                     x:Name="khatMQ"
                     Height="5"
-                    Margin="567,707,0,0"
+                    Margin="616,707,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
@@ -3192,7 +3190,7 @@
                 <Line
                     x:Name="khatNQ"
                     Height="5"
-                    Margin="632,704,0,0"
+                    Margin="677,704,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
@@ -3217,7 +3215,7 @@
                 <Line
                     x:Name="khatNM"
                     Height="5"
-                    Margin="673,604,0,0"
+                    Margin="719,604,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
@@ -3266,19 +3264,19 @@
                 <Line
                     x:Name="khatOQ"
                     Height="5"
-                    Margin="483,756,0,0"
+                    Margin="497,753,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     RenderTransformOrigin="0.5,0.5"
                     X1="0"
-                    X2="180"
+                    X2="210"
                     Y1="2.5"
                     Y2="2.5">
                     <Line.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform />
                             <SkewTransform />
-                            <RotateTransform Angle="32" />
+                            <RotateTransform Angle="26" />
                             <TranslateTransform />
                         </TransformGroup>
                     </Line.RenderTransform>
@@ -3295,11 +3293,11 @@
                 <Line
                     x:Name="khatPQ"
                     Height="5"
-                    Margin="286,809,0,0"
+                    Margin="281,809,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     X1="0"
-                    X2="350"
+                    X2="410"
                     Y1="2.5"
                     Y2="2.5">
                     <Line.Stroke>
@@ -3325,7 +3323,7 @@
                     x:Name="B"
                     Width="65"
                     Height="65"
-                    Margin="625,68,0,0"
+                    Margin="675,68,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Fill="#FFAE8989"
@@ -3361,7 +3359,7 @@
                     x:Name="F"
                     Width="66"
                     Height="64"
-                    Margin="624,302,0,0"
+                    Margin="674,302,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Fill="#0f9"
@@ -3370,7 +3368,7 @@
                     x:Name="G"
                     Width="65"
                     Height="64"
-                    Margin="836,302,0,0"
+                    Margin="883,302,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Fill="#afafd2"
@@ -3397,7 +3395,7 @@
                     x:Name="J"
                     Width="66"
                     Height="66"
-                    Margin="736,432,0,0"
+                    Margin="786,432,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Fill="#f9822e"
@@ -3424,7 +3422,7 @@
                     x:Name="M"
                     Width="65"
                     Height="66"
-                    Margin="625,574,0,0"
+                    Margin="675,574,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Fill="#e5fa15"
@@ -3433,7 +3431,7 @@
                     x:Name="N"
                     Width="65"
                     Height="64"
-                    Margin="836,575,0,0"
+                    Margin="880,575,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Fill="#be8ae3"
@@ -3460,7 +3458,7 @@
                     x:Name="Q"
                     Width="65"
                     Height="64"
-                    Margin="625,780,0,0"
+                    Margin="675,780,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Fill="#ffd49b48"
@@ -3477,7 +3475,7 @@
                     Foreground="White" />
                 <Label
                     x:Name="lbl_B"
-                    Margin="647,85,0,0"
+                    Margin="697,85,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Center"
@@ -3510,7 +3508,7 @@
                     FontSize="16" />
                 <Label
                     x:Name="lbl_F"
-                    Margin="647,320,0,0"
+                    Margin="697,320,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Content="F"
@@ -3518,7 +3516,7 @@
                     Foreground="Black" />
                 <Label
                     x:Name="lbl_G"
-                    Margin="859,320,0,0"
+                    Margin="906,320,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Content="G"
@@ -3543,14 +3541,14 @@
                     Foreground="#FF040303" />
                 <Label
                     x:Name="lbl_J"
-                    Margin="759,452,0,0"
+                    Margin="809,452,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Content="J"
                     FontSize="16" />
                 <Label
                     x:Name="lbl_N"
-                    Margin="858,593,0,0"
+                    Margin="903,593,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Content="N"
@@ -3558,7 +3556,7 @@
                     Foreground="White" />
                 <Label
                     x:Name="lbl_M"
-                    Margin="647,593,0,0"
+                    Margin="697,593,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Content="M"
@@ -3596,7 +3594,7 @@
                     Foreground="White" />
                 <Label
                     x:Name="lbl_Q"
-                    Margin="647,797,0,0"
+                    Margin="697,797,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Content="Q"
