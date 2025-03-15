@@ -7,99 +7,172 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Name="TSP"
     Title="TSP"
-    Width="1250"
+    Width="1300"
     Height="995"
+    AllowsTransparency="True"
+    Background="Transparent"
     FontFamily="FiraCode Nerd Font Mono Ret"
     FontSize="11"
     Loaded="Load"
     ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
     mc:Ignorable="d">
     <Grid x:Name="T_S_P" Margin="0,0,2,0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="300" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="InputPanel" Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="130" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="120" />
-            </Grid.RowDefinitions>
-            <Label
-                x:Name="lbl_Inception"
-                Width="93"
-                Margin="4,10,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Content="Inception Point" />
-            <Label
-                x:Name="lbl_Destination"
-                Width="105"
-                Margin="116,10,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Content="Destination Point" />
-            <ComboBox
-                x:Name="Destination_Point"
-                Width="107"
-                Height="21"
-                Margin="115,41,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top" />
-            <ComboBox
-                x:Name="Inception_Point"
-                Width="107"
-                Height="21"
-                Margin="3,41,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top" />
-            <Button
-                x:Name="CalculateButton"
-                Width="80"
-                Height="41"
-                Margin="32,74,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Click="OnCalculateButtonClick"
-                Content="Calculate"
-                IsEnabled="False" />
+        <Border
+            Grid.Column="0"
+            Margin="20"
+            Background="GhostWhite"
+            BorderBrush="LightSlateGray"
+            BorderThickness="1"
+            CornerRadius="5">
+            <Border.Effect>
+                <DropShadowEffect
+                    BlurRadius="10"
+                    Direction="270"
+                    Opacity="0.6"
+                    RenderingBias="Quality"
+                    Color="Gray" />
+            </Border.Effect>
 
-            <Button
-                x:Name="RandomDataButton"
-                Width="80"
-                Height="41"
-                Margin="124,74,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Click="OnFakeDataButtonClick"
-                Content="Random Data" />
+            <Grid x:Name="InputPanel">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="1.3*" />
+                    </Grid.RowDefinitions>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Background="LightGray"
+                        CornerRadius="5,5,10,10"
+                        MouseLeftButtonDown="OnBorderDraging">
+                        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-            <ScrollViewer
-                x:Name="PanelScrollViewer"
-                Grid.Row="1"
-                Margin="5">
-                <StackPanel
-                    x:Name="PanelStackPanel"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Orientation="Vertical" />
-            </ScrollViewer>
+                            <Label
+                                Grid.Column="0"
+                                Width="20"
+                                Padding="4,0,0,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Content="+"
+                                Cursor="Hand"
+                                FontSize="18"
+                                Foreground="Red"
+                                MouseLeftButtonDown="OnCloseLableClick"
+                                RenderTransformOrigin="0.5,0.5">
+                                <Label.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform />
+                                        <SkewTransform />
+                                        <RotateTransform Angle="45" />
+                                        <TranslateTransform />
+                                    </TransformGroup>
+                                </Label.RenderTransform>
+                            </Label>
+
+                            <Label
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Content="Dijkestra Routing Algorithm"
+                                Foreground="DodgerBlue" />
+                        </Grid>
+                    </Border>
+
+                    <Label
+                        x:Name="lbl_Inception"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Inception Point" />
+                    <Label
+                        x:Name="lbl_Destination"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Destination Point" />
+                    <ComboBox
+                        x:Name="Destination_Point"
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Width="107"
+                        Height="21"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center" />
+                    <ComboBox
+                        x:Name="Inception_Point"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Width="107"
+                        Height="21"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center" />
+                    <StackPanel
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Button
+                            x:Name="CalculateButton"
+                            Width="80"
+                            Height="41"
+                            Margin="5,0"
+                            Click="OnCalculateButtonClick"
+                            Content="Calculate"
+                            IsEnabled="False" />
+
+                        <Button
+                            x:Name="RandomDataButton"
+                            Width="80"
+                            Height="41"
+                            Margin="5,0"
+                            Click="OnFakeDataButtonClick"
+                            Content="Random Data" />
+                    </StackPanel>
+                </Grid>
 
 
-            <StackPanel
-                Grid.Row="2"
-                Margin="3"
-                Orientation="Vertical">
-                <Button
-                    x:Name="btn_Lecturer"
-                    Grid.Row="2"
-                    Width="198"
-                    Height="27"
-                    Margin="5"
-                    HorizontalAlignment="Center"
-                    Click="OnLecturerButtonClick"
-                    Content="Lecturer" />
+                <ScrollViewer
+                    x:Name="PanelScrollViewer"
+                    Grid.Row="1"
+                    Margin="10">
+                    <StackPanel
+                        x:Name="PanelStackPanel"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Orientation="Vertical" />
+                </ScrollViewer>
+
                 <Button
                     x:Name="btn_Creators"
                     Grid.Row="2"
@@ -108,19 +181,10 @@
                     Margin="5"
                     HorizontalAlignment="Center"
                     Click="OnCreatorsButtonClick"
-                    Content="Creators" />
-                <Button
-                    x:Name="btn_Course"
-                    Grid.Row="2"
-                    Width="198"
-                    Height="27"
-                    Margin="5"
-                    HorizontalAlignment="Center"
-                    Click="OnCourseButtonClick"
-                    Content="Course" />
-            </StackPanel>
+                    Content="Presented By" />
 
-        </Grid>
+            </Grid>
+        </Border>
 
 
 
@@ -452,7 +516,7 @@
                     x:Name="CI"
                     Width="50"
                     Height="18"
-                    Margin="449,272,0,0"
+                    Margin="457,272,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1090,7 +1154,7 @@
                     x:Name="IC"
                     Width="50"
                     Height="18"
-                    Margin="449,389,0,0"
+                    Margin="457,389,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1265,7 +1329,7 @@
                     x:Name="IO"
                     Width="50"
                     Height="18"
-                    Margin="449,513,0,0"
+                    Margin="457,513,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -1885,7 +1949,7 @@
                     x:Name="OI"
                     Width="50"
                     Height="18"
-                    Margin="449,631,0,0"
+                    Margin="457,631,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     BorderBrush="Gray"
@@ -2204,43 +2268,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 <!--  Lines Start  -->
                 <Line
                     x:Name="khatAB"
@@ -2259,6 +2286,7 @@
                         </LinearGradientBrush>
                     </Line.Stroke>
                 </Line>
+
                 <Line
                     x:Name="khatAD"
                     Height="5"
@@ -2285,6 +2313,7 @@
                         </LinearGradientBrush>
                     </Line.Stroke>
                 </Line>
+
                 <Line
                     x:Name="khatAD_Copy"
                     Height="5"
@@ -2308,6 +2337,7 @@
                         </LinearGradientBrush>
                     </Line.Stroke>
                 </Line>
+
                 <Line
                     x:Name="khatAC"
                     Height="5"
@@ -2360,6 +2390,7 @@
                         </LinearGradientBrush>
                     </Line.Stroke>
                 </Line>
+
                 <Line
                     x:Name="khatBG_Copy"
                     Height="4"
@@ -2386,6 +2417,7 @@
                         </LinearGradientBrush>
                     </Line.Stroke>
                 </Line>
+
                 <Line
                     x:Name="khatBG"
                     Height="5"
@@ -2437,6 +2469,7 @@
                         </LinearGradientBrush>
                     </Line.Stroke>
                 </Line>
+
                 <Line
                     x:Name="khatCF"
                     Height="5"
@@ -2463,6 +2496,7 @@
                         </TransformGroup>
                     </Line.RenderTransform>
                 </Line>
+
                 <Line
                     x:Name="khatCI"
                     Height="5"
@@ -2515,6 +2549,7 @@
                     </Line.Stroke>
 
                 </Line>
+
                 <Line
                     x:Name="khatDE"
                     Height="5"
@@ -2534,6 +2569,7 @@
                     </Line.Stroke>
 
                 </Line>
+
                 <Line
                     x:Name="khatDH"
                     Height="6"
@@ -2612,6 +2648,7 @@
                     </Line.Stroke>
 
                 </Line>
+
                 <Line
                     x:Name="khatEI"
                     Height="5"
@@ -2743,6 +2780,7 @@
                     </Line.Stroke>
 
                 </Line>
+
                 <Line
                     x:Name="khatGJ"
                     Height="5"
@@ -2877,6 +2915,7 @@
                     </Line.Stroke>
 
                 </Line>
+
                 <Line
                     x:Name="khatIM"
                     Height="5"
@@ -2906,6 +2945,7 @@
                     </Line.Stroke>
 
                 </Line>
+
                 <Line
                     x:Name="khatIO"
                     Height="5"
@@ -2981,6 +3021,7 @@
                     </Line.Stroke>
 
                 </Line>
+
                 <Line
                     x:Name="khatJN"
                     Height="5"
@@ -3038,6 +3079,7 @@
                     </Line.Stroke>
 
                 </Line>
+
                 <Line
                     x:Name="khatKL"
                     Height="4"
@@ -3078,6 +3120,7 @@
                     </Line.Stroke>
 
                 </Line>
+
                 <Line
                     x:Name="khatLO"
                     Height="6"
@@ -3106,6 +3149,7 @@
                     </Line.Stroke>
 
                 </Line>
+
                 <Line
                     x:Name="khatLP"
                     Height="5"
@@ -3161,6 +3205,7 @@
 
 
                 </Line>
+
                 <Line
                     x:Name="khatMQ"
                     Height="5"
@@ -3212,6 +3257,7 @@
                     </Line.Stroke>
 
                 </Line>
+
                 <Line
                     x:Name="khatNM"
                     Height="5"
@@ -3261,6 +3307,7 @@
                     </Line.Stroke>
 
                 </Line>
+
                 <Line
                     x:Name="khatOQ"
                     Height="5"
@@ -3310,6 +3357,8 @@
 
                 <!--  Lines End  -->
 
+                <!--  Start Ellipse  -->
+
                 <Ellipse
                     x:Name="A"
                     Width="65"
@@ -3317,8 +3366,8 @@
                     Margin="231,68,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Fill="Red"
-                    Stroke="Black" />
+                    Fill="Red" />
+
                 <Ellipse
                     x:Name="B"
                     Width="65"
@@ -3326,8 +3375,8 @@
                     Margin="675,68,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Fill="#FFAE8989"
-                    Stroke="Black" />
+                    Fill="#FFAE8989" />
+
                 <Ellipse
                     x:Name="C"
                     Width="66"
@@ -3335,8 +3384,8 @@
                     Margin="0,190,0,0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top"
-                    Fill="#FF2F2F6E"
-                    Stroke="Black" />
+                    Fill="#FF2F2F6E" />
+
                 <Ellipse
                     x:Name="D"
                     Width="65"
@@ -3344,8 +3393,8 @@
                     Margin="34,302,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Fill="#FF2D2DEE"
-                    Stroke="Black" />
+                    Fill="#FF2D2DEE" />
+
                 <Ellipse
                     x:Name="E"
                     Width="64"
@@ -3353,8 +3402,8 @@
                     Margin="232,301,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Fill="#FFBDAD06"
-                    Stroke="Black" />
+                    Fill="#FFBDAD06" />
+
                 <Ellipse
                     x:Name="F"
                     Width="66"
@@ -3362,8 +3411,8 @@
                     Margin="674,302,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Fill="#0f9"
-                    Stroke="Black" />
+                    Fill="#0f9" />
+
                 <Ellipse
                     x:Name="G"
                     Width="65"
@@ -3371,8 +3420,8 @@
                     Margin="883,302,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Fill="#afafd2"
-                    Stroke="Black" />
+                    Fill="#afafd2" />
+
                 <Ellipse
                     x:Name="H"
                     Width="64"
@@ -3380,8 +3429,8 @@
                     Margin="136,432,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Fill="#FF878797"
-                    Stroke="Black" />
+                    Fill="#FF878797" />
+
                 <Ellipse
                     x:Name="I"
                     Width="64"
@@ -3389,8 +3438,8 @@
                     Margin="0,432,0,0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top"
-                    Fill="#FF88FFF5"
-                    Stroke="Black" />
+                    Fill="#FF88FFF5" />
+
                 <Ellipse
                     x:Name="J"
                     Width="66"
@@ -3398,8 +3447,8 @@
                     Margin="786,432,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Fill="#f9822e"
-                    Stroke="Black" />
+                    Fill="#f9822e" />
+
                 <Ellipse
                     x:Name="K"
                     Width="65"
@@ -3407,8 +3456,8 @@
                     Margin="34,575,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Fill="#ff00d1"
-                    Stroke="Black" />
+                    Fill="#ff00d1" />
+
                 <Ellipse
                     x:Name="L"
                     Width="66"
@@ -3416,8 +3465,8 @@
                     Margin="230,575,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Fill="#70d0ec"
-                    Stroke="Black" />
+                    Fill="#70d0ec" />
+
                 <Ellipse
                     x:Name="M"
                     Width="65"
@@ -3425,8 +3474,8 @@
                     Margin="675,574,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Fill="#e5fa15"
-                    Stroke="Black" />
+                    Fill="#e5fa15" />
+
                 <Ellipse
                     x:Name="N"
                     Width="65"
@@ -3434,8 +3483,8 @@
                     Margin="880,575,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Fill="#be8ae3"
-                    Stroke="Black" />
+                    Fill="#be8ae3" />
+
                 <Ellipse
                     x:Name="O"
                     Width="64"
@@ -3443,8 +3492,8 @@
                     Margin="0,671,0,0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top"
-                    Fill="#d86969"
-                    Stroke="Black" />
+                    Fill="#d86969" />
+
                 <Ellipse
                     x:Name="P"
                     Width="65"
@@ -3452,8 +3501,8 @@
                     Margin="231,779,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Fill="#c231d0"
-                    Stroke="Black" />
+                    Fill="#c231d0" />
+
                 <Ellipse
                     x:Name="Q"
                     Width="65"
@@ -3461,8 +3510,11 @@
                     Margin="675,780,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Fill="#ffd49b48"
-                    Stroke="Black" />
+                    Fill="#ffd49b48" />
+
+                <!--  End Ellipse  -->
+
+
                 <Label
                     x:Name="lbl_A"
                     Margin="254,85,0,0"

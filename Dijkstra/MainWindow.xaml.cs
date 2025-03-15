@@ -26,49 +26,60 @@ namespace Dijkstra
 
         private void Load(object sender, RoutedEventArgs e)
         {
-            //foreach (TextBox item in GUIGrid.Children.OfType<TextBox>())
-            //{
-            //    string[] name = item.Name.Split("_");
-            //    RoundedTextBox newChild = new()
-            //    {
-            //        Name = $"{item.Name}_Panel",
-            //        Margin = new Thickness(5),
-            //        Hint = $"{name[0]} To {name[1]} Viceversa",
-            //        CornerRadius = new CornerRadius(5),
-            //        BorderThickness = new Thickness(1),
-            //        BorderBrush = new SolidColorBrush(Colors.Black),
-            //        TextBoxsTextAlignment = TextAlignment.Center,
-            //        TextBlocksTextAlignment = TextAlignment.Center,
-            //        IsNumeric = true,
-            //        MaxLines = 1,
-            //        TextMaxLenght = 3,
-            //        MinValue = 1,
+            foreach (RoundedTextBox item in GUIGrid.Children.OfType<RoundedTextBox>())
+            {
+                RoundedTextBox newChild = new()
+                {
+                    Name = $"{item.Name}_Panel",
+                    Margin = new Thickness(5),
+                    Hint = item.Hint,
+                    CornerRadius = new CornerRadius(5),
+                    BorderThickness = new Thickness(1),
+                    BorderBrush = new SolidColorBrush(Colors.Black),
+                    TextBoxsTextAlignment = TextAlignment.Center,
+                    TextBlocksTextAlignment = TextAlignment.Center,
+                    IsNumeric = true,
+                    MaxLines = 1,
+                    TextMaxLenght = 3,
+                    MinValue = 1,
 
-            //    };
+                };
 
-            //    newChild.SetBinding(RoundedTextBox.TextProperty, new Binding("Text")
-            //    {
-            //        Source = item,
-            //        Mode = BindingMode.TwoWay,
-            //        UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
-            //    });
+                item.SetBinding(RoundedTextBox.TextProperty, new Binding("Text")
+                {
+                    Source = newChild.baseTextBox,
+                    Mode = BindingMode.TwoWay,
+                    UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
+                });
 
-            //    item.SetBinding(TextBox.TextProperty, new Binding("Text")
-            //    {
-            //        Source = newChild.baseTextBox,
-            //        Mode = BindingMode.TwoWay,
-            //        UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
-            //    });
 
-            //    PanelStackPanel.Children.Add(newChild);
-            //}
+                newChild.SetBinding(RoundedTextBox.TextProperty, new Binding("Text")
+                {
+                    Source = item,
+                    Mode = BindingMode.TwoWay,
+                    UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
+                });
+
+                
+                PanelStackPanel.Children.Add(newChild);
+            }
 
             Inception_Point.ItemsSource = Destination_Point.ItemsSource = new List<string>(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q"]);
 
 
 
         }
-        
+
+        private void OnCloseLableClick(object sender, MouseButtonEventArgs e)
+        {
+            Close();
+        }
+
+        private void OnBorderDraging(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
         #endregion
 
         #region Operations
@@ -108,5 +119,6 @@ namespace Dijkstra
         }
 
         #endregion
+
     }
 }
