@@ -7,7 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:util="clr-namespace:Dijkstra.Utility.XamelConverters"
     x:Name="baseControl"
-    d:DesignHeight="35"
+    MinWidth="65"
+    d:DesignHeight="50"
     d:DesignWidth="300"
     GotFocus="baseControl_GotFocus"
     mc:Ignorable="d">
@@ -15,6 +16,7 @@
         <util:TextLenghtToVisiblityConverter x:Key="VisiblityConverter" />
         <util:ColorToBrushConverter x:Key="ColorConverter" />
         <util:EmptyStringToNullConverter x:Key="ESNC" />
+        <util:EnablityColorConverter x:Key="ECC" />
     </UserControl.Resources>
 
     <Border
@@ -27,10 +29,14 @@
             <SolidColorBrush Opacity="{Binding ElementName=baseControl, Path=TextBoxOpacity, Mode=OneWay}" Color="{Binding ElementName=baseControl, Path=TextBoxBackground, Mode=OneWay, Converter={StaticResource ColorConverter}}" />
         </Border.Background>
 
-        <Grid>
+        <Grid Background="{Binding ElementName=EnablingSwitch, Path=IsChecked, Mode=OneWay, Converter={StaticResource ECC}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="20" />
+            </Grid.ColumnDefinitions>
             <TextBox
                 x:Name="baseTextBox"
-                Margin="{Binding ElementName=baseControl, Path=TextBoxsMargin, Mode=OneWay}"
+                Grid.Column="0"
                 Padding="{Binding ElementName=baseControl, Path=TextBoxsPadding, Mode=OneWay}"
                 HorizontalAlignment="{Binding ElementName=baseControl, Path=TextBoxHorizontalAlignment, Mode=OneWay}"
                 VerticalAlignment="{Binding ElementName=baseControl, Path=TextBoxVerticalAlignment, Mode=OneWay}"
@@ -41,6 +47,7 @@
                 FontFamily="{Binding ElementName=baseControl, Path=FontFamily, Mode=OneWay}"
                 FontSize="{Binding ElementName=baseControl, Path=FontSize, Mode=OneWay}"
                 Foreground="{Binding ElementName=baseControl, Path=Foreground, Mode=OneWay}"
+                IsEnabled="{Binding ElementName=EnablingSwitch, Path=IsChecked, Mode=OneWay}"
                 IsReadOnly="{Binding ElementName=baseControl, Path=IsReadOnly, Mode=OneWay}"
                 MaxLength="{Binding ElementName=baseControl, Path=TextMaxLenght}"
                 MaxLines="{Binding ElementName=baseControl, Path=MaxLines, Mode=TwoWay}"
@@ -48,13 +55,12 @@
                 TextAlignment="{Binding ElementName=baseControl, Path=TextBoxsTextAlignment, Mode=OneWay}"
                 TextChanged="OnTextChanged"
                 TextWrapping="{Binding ElementName=baseControl, Path=TextWrapping, Mode=OneWay}" />
-
             <TextBlock
                 x:Name="HintTextBlock"
-                Margin="{Binding ElementName=baseControl, Path=TextBlocksMargin, Mode=OneWay}"
+                Grid.Column="0"
                 Padding="{Binding ElementName=baseControl, Path=TextBlocksPadding, Mode=OneWay}"
-                HorizontalAlignment="{Binding ElementName=baseControl, Path=TextBoxHorizontalAlignment, Mode=OneWay}"
-                VerticalAlignment="{Binding ElementName=baseControl, Path=TextBoxVerticalAlignment, Mode=OneWay}"
+                HorizontalAlignment="{Binding ElementName=baseTextBox, Path=HorizontalAlignment, Mode=OneWay}"
+                VerticalAlignment="{Binding ElementName=baseTextBox, Path=VerticalAlignment, Mode=OneWay}"
                 FlowDirection="{Binding ElementName=baseControl, Path=FlowDirection, Mode=OneWay}"
                 FocusVisualStyle="{x:Null}"
                 FontFamily="{Binding ElementName=baseControl, Path=FontFamily, Mode=OneWay}"
@@ -64,6 +70,13 @@
                 Text="{Binding ElementName=baseControl, Path=Hint, Mode=OneWay}"
                 TextAlignment="{Binding ElementName=baseControl, Path=TextBlocksTextAlignment, Mode=OneWay}"
                 Visibility="{Binding ElementName=baseTextBox, Path=Text, Converter={StaticResource VisiblityConverter}}" />
+            <RibbonCheckBox
+                x:Name="EnablingSwitch"
+                Grid.Column="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Foreground="Black"
+                IsChecked="{Binding ElementName=baseControl, Path=IsAvailble, Mode=TwoWay}" />
         </Grid>
     </Border>
 </UserControl>
