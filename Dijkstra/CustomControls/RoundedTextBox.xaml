@@ -76,7 +76,8 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Foreground="Black"
-                IsChecked="{Binding ElementName=baseControl, Path=IsAvailble, Mode=TwoWay}" />
+                IsChecked="{Binding ElementName=baseControl, Path=IsAvailble, Mode=TwoWay}"
+                IsEnabled="False" />
         </Grid>
     </Border>
 </UserControl>

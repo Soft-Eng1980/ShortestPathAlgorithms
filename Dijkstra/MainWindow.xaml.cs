@@ -19,18 +19,28 @@ namespace Dijkstra
 {
     public partial class MainWindow : Window
     {
-        private static readonly Hashtable _edges = [];
+        /// <summary>
+        /// A dictionary containing vertices with their weights and availblity
+        /// </summary>
+        private static readonly Dictionary<string, IDictionary<string, IDictionary<bool, int?>>> _weightedVerticesList = [];
 
         /// <summary>
-        /// WVs is abbreviation of Weighted Vertices
+        /// A list Containing all vertices
         /// </summary>
-        private static readonly Dictionary<char, IDictionary<char, IDictionary<bool, int?>>> WVs = [];
+        private static readonly List<string> _verticeList = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q"];
+
 
         /// <summary>
-        /// Contain List of Vertices
+        /// Dictionary that store founded routes for further routing
         /// </summary>
-        private static readonly List<char> Vertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q'];
+        private static readonly Dictionary<string, Tuple<int, string>> _heap = [];
 
+        /// <summary>
+        /// Dictionary containing vertices as key and their visited status as boolean
+        /// </summary>
+        private static Dictionary<string, Tuple<bool>> _visitedList = [];
+
+        
 
 
         public MainWindow()
@@ -39,11 +49,17 @@ namespace Dijkstra
         }
 
         #region Initialization
+
+        /// <summary>
+        /// Return a nulable in of input string is null or not number
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
         private static int? ToNullableInt(string s)
         {
-            if (int.TryParse(s, out int i))
+            if (int.TryParse(s, out int result))
             {
-                return i;
+                return result;
             }
 
             return null;
@@ -51,10 +67,14 @@ namespace Dijkstra
 
         private void Load(object sender, RoutedEventArgs e)
         {
+            //_priorityQueue.Add("A", Tuple.Create(0, ""));
+            //_priorityQueue.Add("B", null);
 
-            foreach (char edge in Vertices)
+            foreach (string vertice in _verticeList)
             {
-                WVs.Add(edge, new Dictionary<char, IDictionary<bool, int?>>());
+                _weightedVerticesList.Add(vertice, new Dictionary<string, IDictionary<bool, int?>>());
+
+                _visitedList.Add(vertice, Tuple.Create(false));
             }
 
 
@@ -62,16 +82,13 @@ namespace Dijkstra
             {
                 #region Mapping
 
-                char from = item.Name[0];
+                string from = item.Name[0].ToString();
 
-                char to = item.Name[1];
+                string to = item.Name[1].ToString();
 
-                WVs[from].Add(to, new Dictionary<bool, int?> { { true, null } });
+                _weightedVerticesList[from].Add(to, new Dictionary<bool, int?> { { true, null } });
 
                 #endregion
-
-
-
 
                 RoundedTextBox newChild = new()
                 {
@@ -132,25 +149,29 @@ namespace Dijkstra
                 PanelStackPanel.Children.Add(newChild);
             }
 
-            Inception_Point.ItemsSource = Destination_Point.ItemsSource = Vertices;
+            Inception_Point.ItemsSource = Destination_Point.ItemsSource = _verticeList;
 
 
 
         }
 
-        //Kepping weighted edges dictionary update upon changes
+        /// <summary>
+        /// Keeping weighted edges dictionary update upon changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnEdgesWeightsChanged(object? sender, EventArgs e)
         {
             var roundedTextBox = sender as RoundedTextBox;
             if (roundedTextBox is not null)
             {
-                char from = roundedTextBox.Name[0];
+                string from = roundedTextBox.Name[0].ToString();
 
-                char to = roundedTextBox.Name[1];
+                string to = roundedTextBox.Name[1].ToString();
 
-                bool key = WVs[from][to].Keys.First();
+                bool key = _weightedVerticesList[from][to].Keys.First();
 
-                WVs[from][to][key] = ToNullableInt(roundedTextBox.Text);
+                _weightedVerticesList[from][to][key] = ToNullableInt(roundedTextBox.baseTextBox.Text);
 
             }
         }
@@ -161,20 +182,19 @@ namespace Dijkstra
 
             if (roundedTextBox is not null)
             {
-                char from = roundedTextBox.Name[0];
+                string from = roundedTextBox.Name[0].ToString();
 
-                char to = roundedTextBox.Name[1];
+                string to = roundedTextBox.Name[1].ToString();
 
-                bool key = WVs[from][to].Keys.First();
+                bool key = _weightedVerticesList[from][to].Keys.First();
 
-                int? keepdValue = WVs[from][to][key];
+                int? keepdValue = _weightedVerticesList[from][to][key];
 
-                WVs[from][to].Remove(key);
+                _weightedVerticesList[from][to].Remove(key);
 
-                WVs[from][to].Add(roundedTextBox.baseTextBox.IsEnabled, keepdValue);
+                _weightedVerticesList[from][to].Add(roundedTextBox.baseTextBox.IsEnabled, keepdValue);
             }
         }
-
 
         private void OnCloseLableClick(object sender, MouseButtonEventArgs e)
         {
@@ -190,93 +210,229 @@ namespace Dijkstra
 
         #region Operations
 
+
+        /// <summary>
+        /// Show shortest from inception point to destination point upon button click
+        /// </summary>
         private void OnCalculateButtonClick(object sender, RoutedEventArgs e)
         {
-            if (Inception_Point.SelectedIndex < 1 || Destination_Point.SelectedIndex < 1)
+            if ((Inception_Point.SelectedIndex < 0 || Destination_Point.SelectedIndex < 0) ||
+                Inception_Point.SelectedIndex.Equals(Destination_Point.SelectedIndex))
             {
                 return;
             }
-
-            InputPanel.IsHitTestVisible = false;
-            GUIBorder.IsHitTestVisible = false;
-
-            Dijkstra((char)Inception_Point.SelectedValue, (char)Destination_Point.SelectedValue);
-
-
-
-            InputPanel.IsHitTestVisible = true;
-            GUIBorder.IsHitTestVisible = true;
         }
 
-        private void Dijkstra(char startEdge, char destinationEdge)
+        /// <summary>
+        /// Calculate shortest path to all edges from inception point and store in a gloabal static table
+        /// </summary>
+        private void OnInceptionVerticeComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            IDictionary<char, List> VerticesTable = new Dictionary<char,List>();
+            DijkstraAlgorithm(((ComboBox)sender).SelectedItem.ToString()/*, Destination_Point.SelectedItem.ToString()*/);
 
-            foreach (char vertice in Vertices)
-            {
-                VerticesTable.Add(vertice, new List());
+        }
+
+        /// <summary>
+        /// Calculate shortest path to all edges from inception point base on dijkstra algorithm
+        /// </summary>
+        /// <param name="inceptionVertice">Inception edge name</param>
+        private void DijkstraAlgorithm(string? inceptionVertice/*, string? destinationVertice*/)
+        {
+            if (inceptionVertice is null/* || destinationVertice is null*/)
+             {
+                return;
             }
 
+            int currentVisitingVerticeTotalDistanceToInceptionvertice = 0;
+
+            _heap.Clear();
+
+            // Make all vertices unvisited except inception vertice
+            foreach (var key in _visitedList.Keys)
+            {
+                if (key.Equals(inceptionVertice))
+                {
+                    _visitedList[key] = Tuple.Create(true);
+                }
+                else
+                {
+                    _visitedList[key] = Tuple.Create(false);
+                }
+
+            }
+            // Initiaizig inception vertice
+            _heap.Add(inceptionVertice, Tuple.Create(0, inceptionVertice));
+
+            string currentVertice = inceptionVertice;
+
+            /// Started from because the las vertice is not calculateable since all other vertices became visted
+            for (int i = 1; i < _verticeList.Count; i++)
+            {
+                foreach (var vertice in _weightedVerticesList[currentVertice].Keys)
+                {
+                    if (vertice is not null && _visitedList[vertice].Item1.Equals(false))
+                    {
+                        foreach (var item in _weightedVerticesList[currentVertice][vertice])
+                        {
+                            if (_visitedList[vertice].Item1.Equals(false))
+                            {
+                                if (item.Key.Equals(true))
+                                {
+                                    int calculated = 0;
+                                    // If existed comapre it
+                                    if (_heap.ContainsKey(vertice))
+                                    {
+
+                                        calculated = item.Value.GetValueOrDefault() + currentVisitingVerticeTotalDistanceToInceptionvertice;
+                                        if (calculated < _heap[vertice].Item1)
+                                        {
+                                            _heap[vertice] = Tuple.Create(calculated, currentVertice);
+                                        }
+                                    }
+                                    // Else add to queue
+                                    else
+                                    {
+                                        calculated = item.Value.GetValueOrDefault() + currentVisitingVerticeTotalDistanceToInceptionvertice;
+                                        _heap.Add(vertice, Tuple.Create(calculated, currentVertice));
+                                    }
+                                }
+                            }
+
+                        }
+                    } // end if visited and not null
+                }// end weited
 
 
+                int currentDistance = 0;
+                (currentVertice, currentDistance) = FindMinimum(_heap);
+                _visitedList[currentVertice] = Tuple.Create(true);
+                currentVisitingVerticeTotalDistanceToInceptionvertice = currentDistance;
 
-
+            }
         }
 
 
-        private static char FindMinimum(Dictionary<char, int?> inputDictionary)
+        /// <summary>
+        /// Find shortest path from visited edge to all neighbour
+        /// </summary>
+        /// <param name="neighbourVertice">Dictionary of that contain all neighbour edges to visiting edge with their distance and availbility</param>
+        /// <returns>The closest edge name.</returns>
+        private static (string, int) FindMinimum(Dictionary<string, Tuple<int, string>> neighbourVertice)
         {
             int minValue = int.MaxValue;
-            char selectedEdge = new();
+            string selectedVertice = "";
 
-            foreach (var edge in inputDictionary)
+            foreach (var vertice in neighbourVertice)
             {
                 // null here means 0 which mean shortest path
-                if (edge.Value is null || edge.Value.GetValueOrDefault() == 0)
+                if (vertice.Value is not null && !vertice.Value.Item1.Equals(0) && _visitedList[vertice.Key].Item1.Equals(false))
                 {
-                    return edge.Key;
-                }
-
-                if (edge.Value.GetValueOrDefault() < minValue)
-                {
-                    minValue = edge.Value.GetValueOrDefault();
-                    selectedEdge = edge.Key;
+                    if ((vertice.Value.Item1) < minValue)
+                    {
+                        minValue = vertice.Value.Item1;
+                        selectedVertice = vertice.Key;
+                    }
                 }
             }
-            return selectedEdge;
+            return (selectedVertice, minValue);
         }
-
 
         //----------------------------------------------------------------------------------------------------------------------------\\
 
-        private void OnFakeDataButtonClick(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Create random distance for all vertices
+        /// </summary>
+        private void OnRandomDataButtonClick(object sender, RoutedEventArgs e)
         {
             Random random = new();
             foreach (RoundedTextBox item in PanelStackPanel.Children.OfType<RoundedTextBox>())
             {
-                item.Text = random.Next(1, 999).ToString();
+                if (item.IsAvailble)
+                {
+                    item.Text = random.Next(1, 999).ToString();
+                }
             }
         }
         #endregion
 
         #region Credits
 
-        private void OnLecturerButtonClick(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("DR.M.Yadollah Zadeh Tabari");
-        }
-        //----------------------------------------------------------------------------------------------------------------------------\\
         private void OnCreatorsButtonClick(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Mohammad Baqer Haeri Bazzaz");
         }
-        //----------------------------------------------------------------------------------------------------------------------------\\
-        private void OnCourseButtonClick(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Algorithms Design");
-        }
 
         #endregion
-
     }
 }
+
+/*&& _weightedVerticesList[currentVertice].ContainsKey(vertice)*/
+#region Junks
+//int inceptionVerticeIndex = -1;
+//// Initialing table to store further calculation
+//for (int index = 0; index < _verticeList.Count; index++)
+//{
+//    _verticesTable.Add(_verticeList[index], null);
+//    _verticesTable[_verticeList[index]] = [
+//        // Is this vertice inception point ?
+//        inceptionVertice.Equals(_verticeList[index]),
+//        // Is this visited ?
+//        false,
+//        // Total calculated distance from inception point
+//        int.MaxValue,
+//        // Selected(Previous) vertice
+//        "",
+//        // keeping track of previous vertice
+//        ""
+//    ];
+//    if (inceptionVertice.Equals(_verticeList[index]))
+//    {
+//        inceptionVerticeIndex = index;
+//    }
+//}
+
+//_verticesTable[inceptionVertice][1] = true;
+//_verticesTable[inceptionVertice][0] = true;
+//_verticesTable[inceptionVertice][2] = 0;
+//_verticesTable[inceptionVertice][3] = inceptionVertice;
+
+//string currentVertice = inceptionVertice;
+
+//for (int i = 0; i < _verticesTable.Count; i++)
+//{
+//    _verticesTable[currentVertice]
+//    foreach (var item in _weightedVerticesList[currentVertice])
+//    {
+
+//    }
+//}
+
+//for (int i = 1; i < _verticeList.Count; i++)
+//{
+//    foreach (var item in _weightedVerticesList[currentVertice])
+//    {
+//        // If route is availble
+//        if (item.Value.ContainsKey(true))
+//        {
+//            if (_priorityQueue.ContainsKey(item.Key))
+//            {
+//                _priorityQueue[item.Key] = item.Value[true].GetValueOrDefault() < _priorityQueue[item.Key]?.Item1 ?
+//                    Tuple.Create(item.Value[true].GetValueOrDefault(), currentVertice) : _priorityQueue[item.Key];
+//            }
+//            else
+//            {
+//                _priorityQueue.Add(item.Key, Tuple.Create(item.Value[true].GetValueOrDefault(), currentVertice));
+//            }
+//        }
+
+//        //_priorityQueue
+//    }
+
+//    currentVertice = FindMinimum(_priorityQueue);
+
+//    string a = "OK";
+
+//}
+
+
+#endregion
