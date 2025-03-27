@@ -29,7 +29,6 @@ namespace Dijkstra
         /// </summary>
         private static readonly List<string> _verticeList = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q"];
 
-
         /// <summary>
         /// Dictionary that store founded routes for further routing
         /// </summary>
@@ -39,8 +38,6 @@ namespace Dijkstra
         /// Dictionary containing vertices as key and their visited status as boolean
         /// </summary>
         private static Dictionary<string, Tuple<bool>> _visitedList = [];
-
-        
 
 
         public MainWindow()
@@ -151,8 +148,6 @@ namespace Dijkstra
 
             Inception_Point.ItemsSource = Destination_Point.ItemsSource = _verticeList;
 
-
-
         }
 
         /// <summary>
@@ -236,15 +231,16 @@ namespace Dijkstra
         /// Calculate shortest path to all edges from inception point base on dijkstra algorithm
         /// </summary>
         /// <param name="inceptionVertice">Inception edge name</param>
-        private void DijkstraAlgorithm(string? inceptionVertice/*, string? destinationVertice*/)
+        private void DijkstraAlgorithm(string? inceptionVertice)
         {
-            if (inceptionVertice is null/* || destinationVertice is null*/)
-             {
+            if (inceptionVertice is null)
+            {
                 return;
             }
 
-            int currentVisitingVerticeTotalDistanceToInceptionvertice = 0;
+            int currentVisitingVerticeTotalDistanceToInceptionVertice = 0;
 
+            // clearing heap for new calculation
             _heap.Clear();
 
             // Make all vertices unvisited except inception vertice
@@ -260,53 +256,51 @@ namespace Dijkstra
                 }
 
             }
+
             // Initiaizig inception vertice
             _heap.Add(inceptionVertice, Tuple.Create(0, inceptionVertice));
 
             string currentVertice = inceptionVertice;
 
-            /// Started from because the las vertice is not calculateable since all other vertices became visted
+            /// Started from 1 because the last vertice is not calculateable since all other vertices became visted
             for (int i = 1; i < _verticeList.Count; i++)
             {
+                //Grabbing every availbe neighbour of current visiting vertice
                 foreach (var vertice in _weightedVerticesList[currentVertice].Keys)
                 {
+                    // Make sure neighbour vertice is not null and visited status is false
                     if (vertice is not null && _visitedList[vertice].Item1.Equals(false))
                     {
                         foreach (var item in _weightedVerticesList[currentVertice][vertice])
                         {
-                            if (_visitedList[vertice].Item1.Equals(false))
+                            // Check if route is available(currently such an option did not implemented, but infrastructure existed is UI)
+                            if (item.Key.Equals(true))
                             {
-                                if (item.Key.Equals(true))
+                                int calculated = 0;
+                                // If existed comapre it
+                                if (_heap.ContainsKey(vertice))
                                 {
-                                    int calculated = 0;
-                                    // If existed comapre it
-                                    if (_heap.ContainsKey(vertice))
-                                    {
 
-                                        calculated = item.Value.GetValueOrDefault() + currentVisitingVerticeTotalDistanceToInceptionvertice;
-                                        if (calculated < _heap[vertice].Item1)
-                                        {
-                                            _heap[vertice] = Tuple.Create(calculated, currentVertice);
-                                        }
-                                    }
-                                    // Else add to queue
-                                    else
+                                    calculated = item.Value.GetValueOrDefault() + currentVisitingVerticeTotalDistanceToInceptionVertice;
+                                    if (calculated < _heap[vertice].Item1)
                                     {
-                                        calculated = item.Value.GetValueOrDefault() + currentVisitingVerticeTotalDistanceToInceptionvertice;
-                                        _heap.Add(vertice, Tuple.Create(calculated, currentVertice));
+                                        _heap[vertice] = Tuple.Create(calculated, currentVertice);
                                     }
                                 }
+                                // Else add to heap
+                                else
+                                {
+                                    calculated = item.Value.GetValueOrDefault() + currentVisitingVerticeTotalDistanceToInceptionVertice;
+                                    _heap.Add(vertice, Tuple.Create(calculated, currentVertice));
+                                }
                             }
-
                         }
                     } // end if visited and not null
                 }// end weited
 
 
-                int currentDistance = 0;
-                (currentVertice, currentDistance) = FindMinimum(_heap);
+                (currentVertice, currentVisitingVerticeTotalDistanceToInceptionVertice) = FindMinimum(_heap);
                 _visitedList[currentVertice] = Tuple.Create(true);
-                currentVisitingVerticeTotalDistanceToInceptionvertice = currentDistance;
 
             }
         }
@@ -365,74 +359,3 @@ namespace Dijkstra
         #endregion
     }
 }
-
-/*&& _weightedVerticesList[currentVertice].ContainsKey(vertice)*/
-#region Junks
-//int inceptionVerticeIndex = -1;
-//// Initialing table to store further calculation
-//for (int index = 0; index < _verticeList.Count; index++)
-//{
-//    _verticesTable.Add(_verticeList[index], null);
-//    _verticesTable[_verticeList[index]] = [
-//        // Is this vertice inception point ?
-//        inceptionVertice.Equals(_verticeList[index]),
-//        // Is this visited ?
-//        false,
-//        // Total calculated distance from inception point
-//        int.MaxValue,
-//        // Selected(Previous) vertice
-//        "",
-//        // keeping track of previous vertice
-//        ""
-//    ];
-//    if (inceptionVertice.Equals(_verticeList[index]))
-//    {
-//        inceptionVerticeIndex = index;
-//    }
-//}
-
-//_verticesTable[inceptionVertice][1] = true;
-//_verticesTable[inceptionVertice][0] = true;
-//_verticesTable[inceptionVertice][2] = 0;
-//_verticesTable[inceptionVertice][3] = inceptionVertice;
-
-//string currentVertice = inceptionVertice;
-
-//for (int i = 0; i < _verticesTable.Count; i++)
-//{
-//    _verticesTable[currentVertice]
-//    foreach (var item in _weightedVerticesList[currentVertice])
-//    {
-
-//    }
-//}
-
-//for (int i = 1; i < _verticeList.Count; i++)
-//{
-//    foreach (var item in _weightedVerticesList[currentVertice])
-//    {
-//        // If route is availble
-//        if (item.Value.ContainsKey(true))
-//        {
-//            if (_priorityQueue.ContainsKey(item.Key))
-//            {
-//                _priorityQueue[item.Key] = item.Value[true].GetValueOrDefault() < _priorityQueue[item.Key]?.Item1 ?
-//                    Tuple.Create(item.Value[true].GetValueOrDefault(), currentVertice) : _priorityQueue[item.Key];
-//            }
-//            else
-//            {
-//                _priorityQueue.Add(item.Key, Tuple.Create(item.Value[true].GetValueOrDefault(), currentVertice));
-//            }
-//        }
-
-//        //_priorityQueue
-//    }
-
-//    currentVertice = FindMinimum(_priorityQueue);
-
-//    string a = "OK";
-
-//}
-
-
-#endregion
