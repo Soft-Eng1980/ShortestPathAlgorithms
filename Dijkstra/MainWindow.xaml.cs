@@ -146,7 +146,7 @@ namespace Dijkstra
                 PanelStackPanel.Children.Add(newChild);
             }
 
-            Inception_Point.ItemsSource = Destination_Point.ItemsSource = _verticeList;
+            InceptionVertice.ItemsSource = DestinationVertice.ItemsSource = _verticeList;
 
         }
 
@@ -164,10 +164,23 @@ namespace Dijkstra
 
                 string to = roundedTextBox.Name[1].ToString();
 
-                bool key = _weightedVerticesList[from][to].Keys.First();
 
-                _weightedVerticesList[from][to][key] = ToNullableInt(roundedTextBox.baseTextBox.Text);
+                if (string.IsNullOrWhiteSpace(roundedTextBox.baseTextBox.Text))
+                {
+                    _weightedVerticesList[from][to].Clear();
+                    _weightedVerticesList[from][to].Add(false, null);
+                }
+                else
+                {
+                    _weightedVerticesList[from][to].Clear();
+                    _weightedVerticesList[from][to][true] = ToNullableInt(roundedTextBox.baseTextBox.Text);
+                }
 
+            }
+
+            if (InceptionVertice.SelectedIndex > -1)
+            {
+                DijkstraAlgorithm(InceptionVertice.SelectedItem.ToString());
             }
         }
 
@@ -206,25 +219,76 @@ namespace Dijkstra
         #region Operations
 
 
-        /// <summary>
-        /// Show shortest from inception point to destination point upon button click
-        /// </summary>
-        private void OnCalculateButtonClick(object sender, RoutedEventArgs e)
-        {
-            if ((Inception_Point.SelectedIndex < 0 || Destination_Point.SelectedIndex < 0) ||
-                Inception_Point.SelectedIndex.Equals(Destination_Point.SelectedIndex))
-            {
-                return;
-            }
-        }
+
 
         /// <summary>
         /// Calculate shortest path to all edges from inception point and store in a gloabal static table
         /// </summary>
         private void OnInceptionVerticeComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DijkstraAlgorithm(((ComboBox)sender).SelectedItem.ToString()/*, Destination_Point.SelectedItem.ToString()*/);
+            string? inception = ((ComboBox)sender).SelectedItem.ToString();
 
+            if (inception is not null)
+            {
+                DijkstraAlgorithm(inception);
+
+                if (DestinationVertice.SelectedIndex > -1)
+                {
+                    string? destination = DestinationVertice.SelectedItem.ToString();
+
+                    if (destination is not null)
+                    {
+                        ShowCalculation(inception, destination);
+                    }
+                }
+            }
+        }
+
+        private void OnDestinationVerticeSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string? destination = ((ComboBox)sender).SelectedItem.ToString();
+            if (InceptionVertice.SelectedIndex > -1)
+            {
+                string? inception = InceptionVertice.SelectedItem.ToString();
+
+                if (destination is not null && inception is not null)
+                {
+                    ShowCalculation(inception, destination);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Show the shortest path to destination vertice in Show Result TextBlock
+        /// </summary>
+        private void ShowCalculation(string inceptionVertice, string destinationVertice)
+        {
+            List<string> routes = [];
+            string currentVertice = destinationVertice;
+
+            while (currentVertice != inceptionVertice)
+            {
+                if (!_heap.ContainsKey(currentVertice))
+                {
+                    ShowResultTextBlock.Foreground = new SolidColorBrush(Colors.Red);
+                    ShowResultTextBlock.Text = $"No way from {inceptionVertice} to {destinationVertice}";
+                    return;
+                }
+                routes.Add(_heap[currentVertice].Item2);
+                currentVertice = _heap[currentVertice].Item2;
+            }
+
+            string path = "";
+
+            for (int i = routes.Count - 1; i >= 0; i--)
+            {
+                path += $"{routes[i]} --> ";
+            }
+
+            path += destinationVertice;
+
+            ShowResultTextBlock.Foreground = new SolidColorBrush(Colors.LightSeaGreen);
+            ShowResultTextBlock.Text = path;
         }
 
         /// <summary>
@@ -265,6 +329,11 @@ namespace Dijkstra
             /// Started from 1 because the last vertice is not calculateable since all other vertices became visted
             for (int i = 1; i < _verticeList.Count; i++)
             {
+                if (!_weightedVerticesList.ContainsKey(currentVertice))
+                {
+                    continue;
+                }
+
                 //Grabbing every availbe neighbour of current visiting vertice
                 foreach (var vertice in _weightedVerticesList[currentVertice].Keys)
                 {
@@ -353,9 +422,11 @@ namespace Dijkstra
 
         private void OnCreatorsButtonClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Mohammad Baqer Haeri Bazzaz");
+            MessageBox.Show("Mohammad Baqer Haeri");
         }
 
         #endregion
+
+
     }
 }
