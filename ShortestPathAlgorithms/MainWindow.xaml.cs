@@ -1,21 +1,11 @@
-﻿using Dijkstra.CustomControls;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using ShortestPathAlgorithms.CustomControls;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using static MaterialDesignThemes.Wpf.Theme.ToolBar;
 
-namespace Dijkstra
+namespace ShortestPathAlgorithms
 {
     public partial class MainWindow : Window
     {
@@ -50,11 +40,11 @@ namespace Dijkstra
         /// <summary>
         /// Return a nulable in of input string is null or not number
         /// </summary>
-        /// <param name="s"></param>
+        /// <param name="stringNumber">Integer value as string</param>
         /// <returns></returns>
-        private static int? ToNullableInt(string s)
+        private static int? ToNullableInt(string stringNumber)
         {
-            if (int.TryParse(s, out int result))
+            if (int.TryParse(stringNumber, out int result))
             {
                 return result;
             }
@@ -155,10 +145,9 @@ namespace Dijkstra
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OnEdgesWeightsChanged(object? sender, EventArgs e)
+        private void OnVerticeEdgeValueChanged(object? sender, EventArgs e)
         {
-            var roundedTextBox = sender as RoundedTextBox;
-            if (roundedTextBox is not null)
+            if (sender is RoundedTextBox roundedTextBox)
             {
                 string from = roundedTextBox.Name[0].ToString();
 
@@ -226,35 +215,26 @@ namespace Dijkstra
         /// </summary>
         private void OnInceptionVerticeComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string? inception = ((ComboBox)sender).SelectedItem.ToString();
 
-            if (inception is not null)
+            if (sender is ComboBox combobox && combobox.SelectedItem.ToString() is string inception)
             {
+
                 DijkstraAlgorithm(inception);
 
-                if (DestinationVertice.SelectedIndex > -1)
+                if (DestinationVertice.SelectedIndex > -1 && DestinationVertice.SelectedItem.ToString() is string destination)
                 {
-                    string? destination = DestinationVertice.SelectedItem.ToString();
-
-                    if (destination is not null)
-                    {
-                        ShowCalculation(inception, destination);
-                    }
+                    ShowCalculation(inception, destination);
                 }
             }
         }
 
         private void OnDestinationVerticeSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string? destination = ((ComboBox)sender).SelectedItem.ToString();
-            if (InceptionVertice.SelectedIndex > -1)
+            //string? destination = ((ComboBox)sender).SelectedItem.ToString();
+            if (sender is ComboBox combobox && combobox.SelectedItem.ToString() is string destination
+               && InceptionVertice.SelectedIndex > -1 && InceptionVertice.SelectedItem.ToString() is string inception)
             {
-                string? inception = InceptionVertice.SelectedItem.ToString();
-
-                if (destination is not null && inception is not null)
-                {
-                    ShowCalculation(inception, destination);
-                }
+                ShowCalculation(inception, destination);
             }
         }
 

@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace Dijkstra;
+namespace ShortestPathAlgorithms;
 
 /// <summary>
 /// Interaction logic for App.xaml

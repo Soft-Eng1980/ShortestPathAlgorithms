@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace Dijkstra.Utility.XamelConverters
+namespace ShortestPathAlgorithms.Utility.XamelConverters
 {
     public class ColorToBrushConverter : IValueConverter
     {

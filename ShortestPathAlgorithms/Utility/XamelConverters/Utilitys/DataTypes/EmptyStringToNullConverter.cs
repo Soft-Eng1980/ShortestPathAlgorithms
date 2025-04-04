@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace Dijkstra.Utility.XamelConverters
+namespace ShortestPathAlgorithms.Utility.XamelConverters
 {
   /// <summary>
   /// Detect if the textBox is not empty , then hide the the textblock and vice versa
